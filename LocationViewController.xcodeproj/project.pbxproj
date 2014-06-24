@@ -22,6 +22,7 @@
 		468E10161958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
 		468E101E1958656A00BA2C56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 468E101C1958656A00BA2C56 /* InfoPlist.strings */; };
 		468E10201958656A00BA2C56 /* LocationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E101F1958656A00BA2C56 /* LocationViewControllerTests.m */; };
+		468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E102A1958658400BA2C56 /* LVCLocationPickerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		468E101B1958656A00BA2C56 /* LocationViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LocationViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		468E101D1958656A00BA2C56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		468E101F1958656A00BA2C56 /* LocationViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewControllerTests.m; sourceTree = "<group>"; };
+		468E10291958658400BA2C56 /* LVCLocationPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCLocationPickerController.h; path = "Location View Controller/LVCLocationPickerController.h"; sourceTree = "<group>"; };
+		468E102A1958658400BA2C56 /* LVCLocationPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCLocationPickerController.m; path = "Location View Controller/LVCLocationPickerController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				468E10061958656A00BA2C56 /* Main_iPad.storyboard */,
 				468E10091958656A00BA2C56 /* LVCViewController.h */,
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
+				468E10291958658400BA2C56 /* LVCLocationPickerController.h */,
+				468E102A1958658400BA2C56 /* LVCLocationPickerController.m */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
@@ -257,6 +262,7 @@
 				468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */,
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
+				468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
