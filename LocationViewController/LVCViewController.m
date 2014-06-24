@@ -7,6 +7,7 @@
 //
 
 #import "LVCViewController.h"
+#import "LVCLocationPickerController.h"
 
 @interface LVCViewController ()
 
@@ -24,6 +25,12 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)showLocationPickerController:(id)sender {
+    LVCLocationPickerController *locationPicker = [[LVCLocationPickerController alloc] init];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:locationPicker];
+    
+    [locationPicker display];
 }
 
 @end
