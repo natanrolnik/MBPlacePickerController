@@ -18,7 +18,6 @@
 {
     self = [super initWithImage:[UIImage imageNamed:@"map-iphone"]];
     if (self) {
-        
     }
     return self;
 }
@@ -39,10 +38,13 @@
     CGFloat longitudeFraction = longitude/180.0f;
     CGFloat longitudeAsPoint = longitudeFraction * CGRectGetMidX(bounds);
     
-    CGFloat latitudeFraction = latitude/90.0f;
+    CGFloat latitudeFraction = -(latitude/90.0f);
     CGFloat latitudeAsPoint = latitudeFraction * CGRectGetMidY(bounds);
     
-    CGPoint center = CGPointMake(CGRectGetMidX(bounds) + latitudeAsPoint, CGRectGetMidY(bounds) + longitudeAsPoint);
+    CGFloat midX = CGRectGetMidX(bounds);
+    CGFloat midY = CGRectGetMidY(bounds);
+    
+    CGPoint center = CGPointMake(longitudeAsPoint + midX, latitudeAsPoint + midY);
     
     return center;
 }
@@ -79,9 +81,9 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10.0f, 10.0f)];
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15.0f, 15.0f)];
         marker.layer.borderColor = [[UIColor redColor] CGColor];
-        marker.layer.borderWidth = 2.0f;
+        marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
         marker.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.7f];
     }
@@ -96,6 +98,11 @@
 - (void)markCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
+
+    CGRect dotRect = [[self marker] bounds];
+    
+    dotRect.origin = CGPointMake(CGRectGetMidX(self.frame) - CGRectGetMidX(dotRect), CGRectGetMidY(self.frame) - CGRectGetMidY(dotRect));
+    [self marker].bounds = dotRect;
     
     [[self marker] setCenter:center];
     [self addSubview:[self marker]];
