@@ -7,26 +7,55 @@
 //
 
 #import "LVCLocationPickerController.h"
+#import "CRLCoreLib.h"
+#import "LVCAnnotation.h"
 
 @import CoreLocation;
 @import MapKit;
 
-@interface LVCLocationPickerController ()
+/**
+ *  An URL to the location feed.
+ *
+ *  TODO: Upload the feed to the server.
+ */
+
+static const NSString *kURLLocationList = @"http://mosheberman.com/feeds/locations.json";
+
+/**
+ *  An annotation identifier.
+ */
+
+static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-location";
 
 /**
  *
+ */
+
+@interface LVCLocationPickerController () <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+
+/**
+ *  The working location.
  */
 
 @property (nonatomic, strong) CLLocation *location;
 
 /**
  *  An array of location dictionaries.
- *
- *  
- *
  */
 
 @property (nonatomic, strong) NSArray *locations;
+
+/**
+ *  A table to display a list of locations.
+ */
+
+@property (nonatomic, strong) UITableView *tableView;
+
+/**
+ *  A map view.
+ */
+
+@property (nonatomic, strong) MKMapView *map;
 
 @end
 
@@ -36,16 +65,51 @@
 {
     self = [super init];
     if (self) {
-        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _locations = @[];
+        _map = [[MKMapView alloc] init];
     }
     return self;
 }
 
 - (void)loadView
 {
+    /**
+     *  Create the view.
+     */
     CGRect bounds = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
     
     self.view = [[UIView alloc] initWithFrame:bounds];
+    
+    /**
+     *  Configure a map.
+     */
+    
+    CGRect mapBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), CGRectGetHeight(bounds)/1.8f);
+    
+    self.map.frame = mapBounds;
+    self.map.showsUserLocation = YES;
+    self.map.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.map.delegate = self;
+    
+    /**
+     *  Configure a table.
+     */
+    
+    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.frame), CGRectGetWidth(bounds), CGRectGetHeight(bounds) - CGRectGetHeight(mapBounds));
+    self.tableView.frame = tableBounds;
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.contentInset = UIEdgeInsetsZero;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    /**
+     *
+     */
+    
+    [self.view addSubview:self.map];
+    [self.view addSubview:self.tableView];
+    
 }
 
 - (void)viewDidLoad
@@ -53,12 +117,61 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    /**
+     *  Load up locations.
+     */
+    
+    [self loadLocations];
+    [[self tableView] reloadData];
+    
+    /**
+     *  Configure buttons.
+     */
+    
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = button;
     
+    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
+    self.navigationItem.leftBarButtonItem = autolocateButton;
+    
+    /**
+     *  Set a background color.
+     */
+    
     self.view.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
     
+    /**
+     *  Register a table view cell class.
+     */
     
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    /**
+     *  Download a updated location list.
+     */
+    
+    NSURL *url = [NSURL URLWithString:(NSString *)kURLLocationList];
+    
+    [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
+        if (data)
+        {
+            NSError *error = nil;
+            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+            
+            if (error && ! locations)
+            {
+                NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
+            }
+            else if (locations)
+            {
+                self.locations = locations;
+                //  TODO: Ensure existing location is in list.
+            }
+        }
+        else{
+            NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,4 +223,102 @@
     }
 }
 
+#pragma mark - UITableView
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    if (self.locations.count > indexPath.row)
+    {
+        NSDictionary *location = self.locations[indexPath.row];
+        cell.textLabel.text = location[@"name"]; 
+    }
+    return cell;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.locations count];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.locations.count > indexPath.row)
+    {
+
+        NSDictionary *location = self.locations[indexPath.row];
+        CLLocationDegrees latitude = [location[@"latitude"] floatValue];
+        CLLocationDegrees longitude = [location[@"longitude"] floatValue];
+        
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+        
+        [self.map setCenterCoordinate:coordinate animated:YES];
+        
+        /**
+         *  Remove the old annotation.
+         */
+        
+        for (id annotation in self.map.annotations) {
+            if ([annotation isEqual:[self.map userLocation]])
+            {
+                continue;
+            }
+            [self.map removeAnnotation:annotation];
+        }
+        
+        /**
+         *  Add a new annotation.
+         */
+        
+        LVCAnnotation *annotation = [[LVCAnnotation alloc] init];
+        
+        annotation.coordinate = coordinate;
+        
+        [self.map addAnnotation:annotation];
+    }
+}
+
+/**
+ *  Loads the locations from the app bundle.
+ */
+
+- (void)loadLocations
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
+    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    NSError *error = nil;
+    
+    if (data) {
+        NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+        self.locations = locations;
+    }
+    else
+    {
+        NSLog(@"Data load failed.");
+    }
+}
+
+- (void)refreshLocation
+{
+    [self.map setCenterCoordinate:self.map.userLocation.coordinate animated:YES];
+}
+
+#pragma mark - Map Annotations
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:(NSString *)kAnnotationIdentifier];
+    
+    if (!annotationView)
+    {
+        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:(NSString *)kAnnotationIdentifier];
+    }
+    
+    return annotationView;
+}
 @end
