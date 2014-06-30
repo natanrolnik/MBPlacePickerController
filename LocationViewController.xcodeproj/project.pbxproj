@@ -12,6 +12,7 @@
 		464BBF171961BAA100321590 /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF161961BAA100321590 /* map.png */; };
 		464BBF1A1961BB2A00321590 /* map-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF181961BB2A00321590 /* map-iphone.png */; };
 		464BBF1B1961BB2A00321590 /* map-iphone@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF191961BB2A00321590 /* map-iphone@2X.png */; };
+		464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF1D1961BB8900321590 /* LVCMapView.m */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
 		468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF31958656A00BA2C56 /* CoreGraphics.framework */; };
 		468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
@@ -73,6 +74,8 @@
 		464BBF161961BAA100321590 /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = map.png; path = Images/map.png; sourceTree = "<group>"; };
 		464BBF181961BB2A00321590 /* map-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-iphone.png"; path = "Images/map-iphone.png"; sourceTree = "<group>"; };
 		464BBF191961BB2A00321590 /* map-iphone@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-iphone@2X.png"; path = "Images/map-iphone@2X.png"; sourceTree = "<group>"; };
+		464BBF1C1961BB8900321590 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCMapView.h; path = MapView/LVCMapView.h; sourceTree = "<group>"; };
+		464BBF1D1961BB8900321590 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCMapView.m; path = MapView/LVCMapView.m; sourceTree = "<group>"; };
 		468E0FEE1958656A00BA2C56 /* LocationViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E0FF11958656A00BA2C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		468E0FF31958656A00BA2C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -209,6 +212,8 @@
 				464BBF191961BB2A00321590 /* map-iphone@2X.png */,
 				464BBF161961BAA100321590 /* map.png */,
 				468E110E195CFE3800BA2C56 /* locations.json */,
+				464BBF1C1961BB8900321590 /* LVCMapView.h */,
+				464BBF1D1961BB8900321590 /* LVCMapView.m */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
@@ -376,6 +381,7 @@
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
 				468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */,
+				464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
