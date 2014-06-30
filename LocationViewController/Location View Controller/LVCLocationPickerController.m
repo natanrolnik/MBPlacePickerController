@@ -8,7 +8,7 @@
 
 #import "LVCLocationPickerController.h"
 #import "CRLCoreLib.h"
-#import "LVCAnnotation.h"
+#import "LVCMapView.h"
 
 @import CoreLocation;
 @import MapKit;
@@ -52,10 +52,10 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 @property (nonatomic, strong) UITableView *tableView;
 
 /**
- *  A map view.
+ *
  */
 
-@property (nonatomic, strong) MKMapView *map;
+@property (nonatomic, strong) LVCMapView *map;
 
 @end
 
@@ -67,7 +67,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     if (self) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _locations = @[];
-        _map = [[MKMapView alloc] init];
+        _map = [[LVCMapView alloc] init];
     }
     return self;
 }
@@ -85,24 +85,22 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
      *  Configure a map.
      */
     
-    CGRect mapBounds = CGRectMake(0, 0, CGRectGetWidth(bounds), CGRectGetHeight(bounds)/1.8f);
-    
-    self.map.frame = mapBounds;
-    self.map.showsUserLocation = YES;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.map.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.map.delegate = self;
     
     /**
      *  Configure a table.
      */
     
-    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.frame), CGRectGetWidth(bounds), CGRectGetHeight(bounds) - CGRectGetHeight(mapBounds));
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.bounds), CGRectGetWidth(bounds), CGRectGetHeight(bounds) - CGRectGetHeight(self.map.bounds));
     self.tableView.frame = tableBounds;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.contentInset = UIEdgeInsetsZero;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    
     /**
      *
      */
@@ -172,7 +170,9 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
             NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
         }
     }];
+    
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -256,29 +256,8 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         
-        [self.map setCenterCoordinate:coordinate animated:YES];
-        
-        /**
-         *  Remove the old annotation.
-         */
-        
-        for (id annotation in self.map.annotations) {
-            if ([annotation isEqual:[self.map userLocation]])
-            {
-                continue;
-            }
-            [self.map removeAnnotation:annotation];
-        }
-        
-        /**
-         *  Add a new annotation.
-         */
-        
-        LVCAnnotation *annotation = [[LVCAnnotation alloc] init];
-        
-        annotation.coordinate = coordinate;
-        
-        [self.map addAnnotation:annotation];
+        self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+        [self.map markCoordinate:coordinate];
     }
 }
 
@@ -303,9 +282,13 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     }
 }
 
+/**
+ *  Centers the map on the user.
+ */
+
 - (void)refreshLocation
 {
-    [self.map setCenterCoordinate:self.map.userLocation.coordinate animated:YES];
+
 }
 
 #pragma mark - Map Annotations
@@ -321,4 +304,10 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
     return annotationView;
 }
+
+//- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
+//{
+//    
+//}
+
 @end
