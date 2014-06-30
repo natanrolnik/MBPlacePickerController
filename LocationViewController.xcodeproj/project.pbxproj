@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
+		464BBF141961A65600321590 /* LVCAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF131961A65600321590 /* LVCAnnotation.m */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
 		468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF31958656A00BA2C56 /* CoreGraphics.framework */; };
 		468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
@@ -27,6 +29,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		464BBF081961A1D100321590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 468E107C195B04FF00BA2C56;
+			remoteInfo = CRLCoreLib;
+		};
+		464BBF0A1961A1D100321590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 468E108C195B04FF00BA2C56;
+			remoteInfo = CRLCoreLibTests;
+		};
+		464BBF0D1961A1FB00321590 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 468E107B195B04FF00BA2C56;
+			remoteInfo = CRLCoreLib;
+		};
 		468E10171958656A00BA2C56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 468E0FE61958656A00BA2C56 /* Project object */;
@@ -37,6 +60,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		464BBEFB19619F2A00321590 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
+		464BBEFC19619F2A00321590 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
+		464BBEFD19619F2A00321590 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
+		464BBEFE19619F2A00321590 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
+		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
+		464BBF121961A65600321590 /* LVCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCAnnotation.h; path = "Location View Controller/LVCAnnotation.h"; sourceTree = "<group>"; };
+		464BBF131961A65600321590 /* LVCAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCAnnotation.m; path = "Location View Controller/LVCAnnotation.m"; sourceTree = "<group>"; };
 		468E0FEE1958656A00BA2C56 /* LocationViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E0FF11958656A00BA2C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		468E0FF31958656A00BA2C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */,
 				468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */,
 				468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */,
 				468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */,
@@ -86,6 +117,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		464BBEF819619F2A00321590 /* CoreLib */ = {
+			isa = PBXGroup;
+			children = (
+				464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */,
+				464BBEF919619F2A00321590 /* include */,
+			);
+			name = CoreLib;
+			path = LocationViewController/CoreLib;
+			sourceTree = "<group>";
+		};
+		464BBEF919619F2A00321590 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				464BBEFA19619F2A00321590 /* CRLCoreLib */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		464BBEFA19619F2A00321590 /* CRLCoreLib */ = {
+			isa = PBXGroup;
+			children = (
+				464BBEFB19619F2A00321590 /* CRLCoreLib.h */,
+				464BBEFC19619F2A00321590 /* CRLDataManager.h */,
+				464BBEFD19619F2A00321590 /* CRLFileManager.h */,
+				464BBEFE19619F2A00321590 /* CRLNetworkManager.h */,
+			);
+			path = CRLCoreLib;
+			sourceTree = "<group>";
+		};
+		464BBF041961A1D100321590 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				464BBF091961A1D100321590 /* libCRLCoreLib.a */,
+				464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		468E0FE51958656A00BA2C56 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +177,7 @@
 		468E0FF01958656A00BA2C56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				464BBEF819619F2A00321590 /* CoreLib */,
 				468E0FF11958656A00BA2C56 /* Foundation.framework */,
 				468E0FF31958656A00BA2C56 /* CoreGraphics.framework */,
 				468E0FF51958656A00BA2C56 /* UIKit.framework */,
@@ -127,6 +197,8 @@
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
 				468E10291958658400BA2C56 /* LVCLocationPickerController.h */,
 				468E102A1958658400BA2C56 /* LVCLocationPickerController.m */,
+				464BBF121961A65600321590 /* LVCAnnotation.h */,
+				464BBF131961A65600321590 /* LVCAnnotation.m */,
 				468E110E195CFE3800BA2C56 /* locations.json */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
@@ -177,6 +249,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				464BBF0E1961A1FB00321590 /* PBXTargetDependency */,
 			);
 			name = LocationViewController;
 			productName = LocationViewController;
@@ -227,6 +300,12 @@
 			mainGroup = 468E0FE51958656A00BA2C56;
 			productRefGroup = 468E0FEF1958656A00BA2C56 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 464BBF041961A1D100321590 /* Products */;
+					ProjectRef = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				468E0FED1958656A00BA2C56 /* LocationViewController */,
@@ -234,6 +313,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		464BBF091961A1D100321590 /* libCRLCoreLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCRLCoreLib.a;
+			remoteRef = 464BBF081961A1D100321590 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CRLCoreLibTests.xctest;
+			remoteRef = 464BBF0A1961A1D100321590 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		468E0FEC1958656A00BA2C56 /* Resources */ = {
@@ -263,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				464BBF141961A65600321590 /* LVCAnnotation.m in Sources */,
 				468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */,
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
@@ -281,6 +378,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		464BBF0E1961A1FB00321590 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CRLCoreLib;
+			targetProxy = 464BBF0D1961A1FB00321590 /* PBXContainerItemProxy */;
+		};
 		468E10181958656A00BA2C56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 468E0FED1958656A00BA2C56 /* LocationViewController */;
@@ -404,6 +506,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocationViewController/LocationViewController-Prefix.pch";
 				INFOPLIST_FILE = "LocationViewController/LocationViewController-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LocationViewController/CoreLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -417,6 +523,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LocationViewController/LocationViewController-Prefix.pch";
 				INFOPLIST_FILE = "LocationViewController/LocationViewController-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LocationViewController/CoreLib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -481,6 +591,7 @@
 				468E10251958656A00BA2C56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		468E10261958656A00BA2C56 /* Build configuration list for PBXNativeTarget "LocationViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +600,7 @@
 				468E10281958656A00BA2C56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
