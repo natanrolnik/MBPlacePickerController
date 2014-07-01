@@ -17,7 +17,9 @@
 - (instancetype)init
 {
     self = [super initWithImage:[UIImage imageNamed:@"map-iphone"]];
-    if (self) {
+    if (self)
+    {
+        _indicatorRadius = 30.0f;
     }
     return self;
 }
@@ -81,7 +83,8 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15.0f, 15.0f)];
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius
+                                                          )];
         marker.layer.borderColor = [[UIColor redColor] CGColor];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
@@ -99,13 +102,20 @@
 {
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
 
-    CGRect dotRect = [[self marker] bounds];
+    UIView *marker = [self marker];
     
-    dotRect.origin = CGPointMake(CGRectGetMidX(self.frame) - CGRectGetMidX(dotRect), CGRectGetMidY(self.frame) - CGRectGetMidY(dotRect));
-    [self marker].bounds = dotRect;
     
-    [[self marker] setCenter:center];
-    [self addSubview:[self marker]];
+    if (![self.subviews containsObject:marker]) {
+        [marker setAlpha:0.0f];
+        [marker setCenter:center];
+    }
+    
+    [self addSubview:marker];
+    [UIView animateWithDuration:0.3 animations:^{
+        [marker setCenter:center];
+        [marker setAlpha:1.0];
+    }];
+
 }
 
 @end

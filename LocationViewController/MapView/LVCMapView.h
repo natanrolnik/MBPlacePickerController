@@ -37,4 +37,10 @@
 
 - (void)markCoordinate:(CLLocationCoordinate2D)coordinate;
 
+/**
+ *  The radius of the indicator. The default is 30.0f;
+ */
+
+@property (nonatomic, assign) CGFloat indicatorRadius;
+
 @end
