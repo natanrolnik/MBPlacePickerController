@@ -10,6 +10,12 @@
 
 @interface LVCMapView ()
 
+/**
+ *  References the last known coordinate.
+ */
+
+@property (nonatomic, assign) CLLocationCoordinate2D lastCoordinate;
+
 @end
 
 @implementation LVCMapView
@@ -20,6 +26,7 @@
     if (self)
     {
         _indicatorRadius = 30.0f;
+        _indicatorColor = [UIColor redColor];
     }
     return self;
 }
@@ -85,11 +92,12 @@
     {
         marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius
                                                           )];
-        marker.layer.borderColor = [[UIColor redColor] CGColor];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
-        marker.backgroundColor = [UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.7f];
     }
+    
+    marker.layer.borderColor = [self.indicatorColor CGColor];
+    marker.backgroundColor = [self.indicatorColor colorWithAlphaComponent:0.7];
     
     return marker;
 }
@@ -103,7 +111,7 @@
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
 
     UIView *marker = [self marker];
-    
+    marker.frame = CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius);
     
     if (![self.subviews containsObject:marker]) {
         [marker setAlpha:0.0f];
@@ -115,7 +123,47 @@
         [marker setCenter:center];
         [marker setAlpha:1.0];
     }];
-
+    
+    self.lastCoordinate = coordinate;
 }
 
+/**
+ *  Refresh the marker with new settings.
+ */
+
+- (void)refreshMarker
+{
+    [self markCoordinate:self.lastCoordinate];
+}
+
+/**
+ *  Set the indicator color.
+ *  Setting to nil will default to red.
+ */
+
+- (void)setIndicatorColor:(UIColor *)indicatorColor
+{
+    if (!indicatorColor)
+    {
+        indicatorColor = [UIColor redColor];
+    }
+    _indicatorColor = indicatorColor;
+    
+    [self refreshMarker];
+}
+
+/**
+ *  Set the indicator radius. Setting to a negative will revert to default.
+ */
+
+- (void)setIndicatorRadius:(CGFloat)indicatorRadius
+{
+    if (indicatorRadius < 0)
+    {
+        indicatorRadius = 30.0f;
+    }
+    _indicatorRadius = indicatorRadius;
+    
+    [self refreshMarker];
+}
 @end
