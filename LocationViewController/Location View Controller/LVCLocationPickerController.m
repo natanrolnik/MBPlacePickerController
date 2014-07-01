@@ -68,6 +68,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _locations = @[];
         _map = [[LVCMapView alloc] init];
+        self.view.backgroundColor = [UIColor colorWithRed:0.25 green:0.53 blue:1.00 alpha:1.00];
     }
     return self;
 }
@@ -80,26 +81,31 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     CGRect bounds = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
     
     self.view = [[UIView alloc] initWithFrame:bounds];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
     /**
      *  Configure a map.
      */
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    CGFloat topGuide = [[[[[UIApplication sharedApplication] keyWindow] rootViewController] topLayoutGuide] length];
+    CGFloat navBarHeight = [[[self navigationController] navigationBar] bounds].size.height;
+    
     self.map.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    CGRect mapBounds = self.map.frame;
+    mapBounds.origin.y += topGuide + navBarHeight;
+    self.map.frame = mapBounds;
     
     /**
      *  Configure a table.
      */
     
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.bounds), CGRectGetWidth(bounds), CGRectGetHeight(bounds) - CGRectGetHeight(self.map.bounds));
+    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.frame), CGRectGetWidth(bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(self.map.frame))
+    ;
     self.tableView.frame = tableBounds;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.contentInset = UIEdgeInsetsZero;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     /**
      *
