@@ -33,7 +33,7 @@
   "name" : "Buffalo, New York, USA",
   "longitude" : -78.8783689,
   "latitude" : 42.8864468,
-  "continent" : "North America "
+  "continent" : "North America"
   },
   {
   "name" : "Chicago, Illinois, USA",
@@ -207,7 +207,7 @@
   "name" : "Moscow, Russia",
   "longitude" : 37.617633,
   "latitude" : 55.755786,
-  "continent" : "Russia"
+  "continent" : "Asia"
   },
   {
   "name" : "New York City, New York, USA",
