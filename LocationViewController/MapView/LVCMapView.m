@@ -109,14 +109,14 @@
 - (void)markCoordinate:(CLLocationCoordinate2D)coordinate
 {
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
-
+    
     UIView *marker = [self marker];
     marker.frame = CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius);
     
-    if (![self.subviews containsObject:marker]) {
-        [marker setAlpha:0.0f];
-        [marker setCenter:center];
-    }
+    
+    [marker setAlpha:0.0f];
+    [marker setCenter:center];
+    
     
     [self addSubview:marker];
     [UIView animateWithDuration:0.3 animations:^{
