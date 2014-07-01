@@ -46,6 +46,11 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 @property (nonatomic, strong) NSArray *locations;
 
 /**
+ *  A dictionary of dictionaries, sorted by continent.
+ */
+
+@property (nonatomic, strong) NSDictionary *locationsByContinent;
+/**
  *  A table to display a list of locations.
  */
 
@@ -81,37 +86,32 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     CGRect bounds = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
     
     self.view = [[UIView alloc] initWithFrame:bounds];
+    
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     /**
      *  Configure a map.
      */
     
-    CGFloat topGuide = [[[[[UIApplication sharedApplication] keyWindow] rootViewController] topLayoutGuide] length];
-    CGFloat navBarHeight = [[[self navigationController] navigationBar] bounds].size.height;
+    self.map.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;;
+    CGRect mapFrame = self.map.frame;
+    mapFrame.origin.y = [self.topLayoutGuide length];
+    self.map.frame = mapFrame;
+    [self.view addSubview:self.map];
     
-    self.map.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    CGRect mapBounds = self.map.frame;
-    mapBounds.origin.y += topGuide + navBarHeight;
-    self.map.frame = mapBounds;
     
     /**
      *  Configure a table.
      */
     
-    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.frame), CGRectGetWidth(bounds), CGRectGetHeight(self.view.bounds) - CGRectGetHeight(self.map.frame))
+    CGRect tableBounds = CGRectMake(0, CGRectGetMaxY(self.map.frame), CGRectGetWidth(bounds), CGRectGetHeight(self.view.bounds) - CGRectGetMaxY(self.map.frame));
     ;
     self.tableView.frame = tableBounds;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
-    /**
-     *
-     */
-    
-    [self.view addSubview:self.map];
     [self.view addSubview:self.tableView];
     
 }
@@ -135,8 +135,8 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = button;
     
-    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
-    self.navigationItem.leftBarButtonItem = autolocateButton;
+//    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
+//    self.navigationItem.leftBarButtonItem = autolocateButton;
     
     /**
      *  Set a background color.
@@ -257,12 +257,18 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     {
 
         NSDictionary *location = self.locations[indexPath.row];
+        
         CLLocationDegrees latitude = [location[@"latitude"] floatValue];
         CLLocationDegrees longitude = [location[@"longitude"] floatValue];
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         
         self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+        
+        /**
+         *  Update the map.
+         */
+        
         [self.map markCoordinate:coordinate];
     }
 }
@@ -287,33 +293,5 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         NSLog(@"Data load failed.");
     }
 }
-
-/**
- *  Centers the map on the user.
- */
-
-- (void)refreshLocation
-{
-
-}
-
-#pragma mark - Map Annotations
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
-    MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:(NSString *)kAnnotationIdentifier];
-    
-    if (!annotationView)
-    {
-        annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:(NSString *)kAnnotationIdentifier];
-    }
-    
-    return annotationView;
-}
-
-//- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-//{
-//    
-//}
 
 @end
