@@ -57,7 +57,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 @property (nonatomic, strong) UITableView *tableView;
 
 /**
- *
+ *  A view that renders the map.
  */
 
 @property (nonatomic, strong) LVCMapView *map;
@@ -74,6 +74,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         _locations = @[];
         _map = [[LVCMapView alloc] init];
         self.view.backgroundColor = [UIColor colorWithRed:0.25 green:0.53 blue:1.00 alpha:1.00];
+        _sortByContinent = NO;
     }
     return self;
 }
@@ -98,7 +99,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     mapFrame.origin.y = [self.topLayoutGuide length];
     self.map.frame = mapFrame;
     [self.view addSubview:self.map];
-    
     
     /**
      *  Configure a table.
@@ -126,7 +126,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
      */
     
     [self loadLocations];
-    [[self tableView] reloadData];
     
     /**
      *  Configure buttons.
@@ -235,19 +234,79 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    if (self.locations.count > indexPath.row)
+    /**
+     *
+     */
+    if (self.sortByContinent == YES)
     {
-        NSDictionary *location = self.locations[indexPath.row];
-        cell.textLabel.text = location[@"name"]; 
+        //  Gets the name of the continent.
+        NSString *continent = [self _sortedContinentNames][indexPath.section];
+        
+        //  Gets all the locations in the continent
+        NSArray *locationsForContinent = [self locationsByContinent][continent];
+        
+        //  Gets a specific location from the continent.
+        NSInteger row = indexPath.row;
+        if (row < locationsForContinent.count) {
+            NSDictionary *location = locationsForContinent[row];
+            cell.textLabel.text = location[@"name"];
+        }
+        else
+        {
+            cell.textLabel.text = [NSString stringWithFormat:@"%@", @(row)];
+        }
+    }
+    
+    /** 
+     *  ...else just try to find an unsorted location.
+     */
+    else
+    {
+        
+         if (self.locations.count > indexPath.row)
+         {
+             NSDictionary *location = self.locations[indexPath.row];
+             cell.textLabel.text = location[@"name"];
+         }
     }
     return cell;
 }
 
+/**
+ *  Return enough rows for the continent, or for all unsorted locations.
+ */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.locations count];
+    CGFloat count = 0;
+    
+    if (self.sortByContinent == YES)
+    {
+        NSString *continentKeyForSection = [self _sortedContinentNames][section];
+        count = [self.locationsByContinent[continentKeyForSection] count];
+    }
+    else{
+        count = [self.locations count];
+    }
+    
+    return count;
 }
+
+/**
+ *  Return enough sections for each continent.
+ */
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (self.sortByContinent == YES)
+    {
+        return self.locationsByContinent.allKeys.count;
+    }
+    return 1;
+}
+
+/**
+ *  Handle cell selection.
+ */
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -274,6 +333,24 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 }
 
 /**
+ *  Return the continent name for each section.
+ */
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title = nil;
+    
+    if (self.sortByContinent == YES)
+    {
+        title = [self _sortedContinentNames][section];
+        NSLog(@"Title: %@", title);
+    }
+    
+    return title;
+}
+
+
+/**
  *  Loads the locations from the app bundle.
  */
 
@@ -294,4 +371,60 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     }
 }
 
+
+- (void)setLocations:(NSArray *)locations
+{
+    if (locations) {
+        _locations = locations;
+        [self processLocations];    //  Sort by continent.
+    }
+}
+/**
+ *  Converts an array of locations to a dictionary of locations sorted by continent.
+ */
+
+- (void)processLocations
+{
+    NSMutableDictionary *continents = [[NSMutableDictionary alloc] init];
+    
+    for (NSDictionary *location in self.locations)
+    {
+        NSString *continent = location[@"continent"];
+        
+        /**
+         *  If there's no continent, skip the location.
+         */
+        
+        if (!continent)
+        {
+            continue;
+        }
+        
+        /**
+         *  Ensure we have an array for the location.
+         */
+        
+        if (!continents[continent]) {
+            continents[continent] = [[NSMutableArray alloc] init];
+        }
+        
+        /**
+         *  Add the location.
+         */
+        
+        [continents[continent] addObject:location];
+    }
+    
+    self.locationsByContinent = continents;
+    [self.tableView reloadData];
+}
+
+/**
+ *  @return The continents, sorted by name.
+ */
+
+- (NSArray *)_sortedContinentNames
+{
+    return [[[self locationsByContinent] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+}
 @end

@@ -22,4 +22,11 @@
 
 - (void)dismiss;
 
+/**
+ *  A flag to determine if the locations should be sorted by continent.
+ *  Default is YES.
+ */
+
+@property (nonatomic, assign) BOOL sortByContinent;
+
 @end
