@@ -74,7 +74,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         _locations = @[];
         _map = [[LVCMapView alloc] init];
         self.view.backgroundColor = [UIColor colorWithRed:0.25 green:0.53 blue:1.00 alpha:1.00];
-        _sortByContinent = NO;
+        _sortByContinent = YES;
     }
     return self;
 }
@@ -317,6 +317,21 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 
         NSDictionary *location = self.locations[indexPath.row];
         
+        if (self.sortByContinent)
+        {
+            //  Gets the name of the continent.
+            NSString *continent = [self _sortedContinentNames][indexPath.section];
+            
+            //  Gets all the locations in the continent
+            NSArray *locationsForContinent = [self locationsByContinent][continent];
+            
+            //  Gets a specific location from the continent.
+            NSInteger row = indexPath.row;
+            if (row < locationsForContinent.count) {
+                location = locationsForContinent[row];
+            }
+        }
+        
         CLLocationDegrees latitude = [location[@"latitude"] floatValue];
         CLLocationDegrees longitude = [location[@"longitude"] floatValue];
         
@@ -343,7 +358,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     if (self.sortByContinent == YES)
     {
         title = [self _sortedContinentNames][section];
-        NSLog(@"Title: %@", title);
     }
     
     return title;
@@ -374,7 +388,8 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 
 - (void)setLocations:(NSArray *)locations
 {
-    if (locations) {
+    if (locations)
+    {
         _locations = locations;
         [self processLocations];    //  Sort by continent.
     }
@@ -416,7 +431,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     }
     
     self.locationsByContinent = continents;
-    [self.tableView reloadData];
 }
 
 /**
@@ -425,6 +439,18 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 
 - (NSArray *)_sortedContinentNames
 {
-    return [[[self locationsByContinent] allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    return [self.locationsByContinent.allKeys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+}
+
+/**
+ *
+ */
+
+- (void)setSortByContinent:(BOOL)sortByContinent
+{
+    _sortByContinent = sortByContinent;
+    
+    [self loadLocations];
+    [[self tableView] reloadData];
 }
 @end
