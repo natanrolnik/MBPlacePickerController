@@ -17,8 +17,7 @@
 		468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 468E0FFA1958656A00BA2C56 /* InfoPlist.strings */; };
 		468E0FFE1958656A00BA2C56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E0FFD1958656A00BA2C56 /* main.m */; };
 		468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E10011958656A00BA2C56 /* LVCAppDelegate.m */; };
-		468E10051958656A00BA2C56 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468E10031958656A00BA2C56 /* Main_iPhone.storyboard */; };
-		468E10081958656A00BA2C56 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468E10061958656A00BA2C56 /* Main_iPad.storyboard */; };
+		468E10051958656A00BA2C56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 468E10031958656A00BA2C56 /* Main.storyboard */; };
 		468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E100A1958656A00BA2C56 /* LVCViewController.m */; };
 		468E100D1958656A00BA2C56 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 468E100C1958656A00BA2C56 /* Images.xcassets */; };
 		468E10141958656A00BA2C56 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E10131958656A00BA2C56 /* XCTest.framework */; };
@@ -79,8 +78,7 @@
 		468E0FFF1958656A00BA2C56 /* LocationViewController-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocationViewController-Prefix.pch"; sourceTree = "<group>"; };
 		468E10001958656A00BA2C56 /* LVCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVCAppDelegate.h; sourceTree = "<group>"; };
 		468E10011958656A00BA2C56 /* LVCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVCAppDelegate.m; sourceTree = "<group>"; };
-		468E10041958656A00BA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		468E10071958656A00BA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		468E10041958656A00BA2C56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		468E10091958656A00BA2C56 /* LVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LVCViewController.h; sourceTree = "<group>"; };
 		468E100A1958656A00BA2C56 /* LVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LVCViewController.m; sourceTree = "<group>"; };
 		468E100C1958656A00BA2C56 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -219,8 +217,7 @@
 			children = (
 				468E10001958656A00BA2C56 /* LVCAppDelegate.h */,
 				468E10011958656A00BA2C56 /* LVCAppDelegate.m */,
-				468E10031958656A00BA2C56 /* Main_iPhone.storyboard */,
-				468E10061958656A00BA2C56 /* Main_iPad.storyboard */,
+				468E10031958656A00BA2C56 /* Main.storyboard */,
 				468E10091958656A00BA2C56 /* LVCViewController.h */,
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
 				464BBF2C1962673F00321590 /* Location Picker */,
@@ -391,11 +388,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				468E10081958656A00BA2C56 /* Main_iPad.storyboard in Resources */,
 				468E100D1958656A00BA2C56 /* Images.xcassets in Resources */,
 				468E110F195CFE3800BA2C56 /* locations.json in Resources */,
 				464BBF2819622DA700321590 /* map-iphone@2x.png in Resources */,
-				468E10051958656A00BA2C56 /* Main_iPhone.storyboard in Resources */,
+				468E10051958656A00BA2C56 /* Main.storyboard in Resources */,
 				464BBF2719622DA700321590 /* map-iphone.png in Resources */,
 				468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */,
 			);
@@ -456,20 +452,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		468E10031958656A00BA2C56 /* Main_iPhone.storyboard */ = {
+		468E10031958656A00BA2C56 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				468E10041958656A00BA2C56 /* Base */,
 			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		468E10061958656A00BA2C56 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				468E10071958656A00BA2C56 /* Base */,
-			);
-			name = Main_iPad.storyboard;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		468E101C1958656A00BA2C56 /* InfoPlist.strings */ = {
