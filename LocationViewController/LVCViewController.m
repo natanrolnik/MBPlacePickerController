@@ -97,4 +97,17 @@
     [self.locationPickerController setShowUserLocation:self.showUserLocationSwitch.on];
 }
 
+/**
+ *  Changes the marker size.
+ */
+
+- (IBAction)markerSizeChanged:(id)sender
+{
+    if ([sender isKindOfClass:[UISlider class]]) {
+        UISlider *s = sender;
+        [self.locationPickerController setMarkerSize:s.value];
+    }
+
+}
+
 @end
