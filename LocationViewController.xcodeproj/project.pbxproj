@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		46265F2619673F7C0039A2B9 /* LVCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46265F2519673F7C0039A2B9 /* LVCLocationManager.m */; };
 		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
-		464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF1D1961BB8900321590 /* LVCMapView.m */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
 		468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF31958656A00BA2C56 /* CoreGraphics.framework */; };
 		468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
@@ -24,12 +22,14 @@
 		468E10161958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
 		468E101E1958656A00BA2C56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 468E101C1958656A00BA2C56 /* InfoPlist.strings */; };
 		468E10201958656A00BA2C56 /* LocationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E101F1958656A00BA2C56 /* LocationViewControllerTests.m */; };
-		468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E102A1958658400BA2C56 /* LVCLocationPickerController.m */; };
-		468E110F195CFE3800BA2C56 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 468E110E195CFE3800BA2C56 /* locations.json */; };
+		46D70574196766F0008113A8 /* LVCLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D70569196766F0008113A8 /* LVCLocationManager.m */; };
+		46D70575196766F0008113A8 /* LVCLocationPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7056C196766F0008113A8 /* LVCLocationPickerController.m */; };
+		46D70576196766F0008113A8 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7056F196766F0008113A8 /* LVCMapView.m */; };
+		46D70577196766F0008113A8 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D70571196766F0008113A8 /* equi-map.png */; };
+		46D70578196766F0008113A8 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D70572196766F0008113A8 /* equi-map@2x.png */; };
+		46D70579196766F0008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D70573196766F0008113A8 /* locations.json */; };
 		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
 		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
-		46D7E58919671200000EA7C3 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58719671200000EA7C3 /* equi-map.png */; };
-		46D7E58A19671200000EA7C3 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58819671200000EA7C3 /* equi-map@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		46265F2419673F7C0039A2B9 /* LVCLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVCLocationManager.h; sourceTree = "<group>"; };
-		46265F2519673F7C0039A2B9 /* LVCLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVCLocationManager.m; sourceTree = "<group>"; };
 		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
-		464BBF1C1961BB8900321590 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCMapView.h; path = MapView/LVCMapView.h; sourceTree = "<group>"; };
-		464BBF1D1961BB8900321590 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCMapView.m; path = MapView/LVCMapView.m; sourceTree = "<group>"; };
 		468E0FEE1958656A00BA2C56 /* LocationViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E0FF11958656A00BA2C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		468E0FF31958656A00BA2C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,17 +84,21 @@
 		468E101B1958656A00BA2C56 /* LocationViewControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LocationViewControllerTests-Info.plist"; sourceTree = "<group>"; };
 		468E101D1958656A00BA2C56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		468E101F1958656A00BA2C56 /* LocationViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewControllerTests.m; sourceTree = "<group>"; };
-		468E10291958658400BA2C56 /* LVCLocationPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCLocationPickerController.h; path = "Location View Controller/LVCLocationPickerController.h"; sourceTree = "<group>"; };
-		468E102A1958658400BA2C56 /* LVCLocationPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCLocationPickerController.m; path = "Location View Controller/LVCLocationPickerController.m"; sourceTree = "<group>"; };
-		468E110E195CFE3800BA2C56 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
+		46D70568196766F0008113A8 /* LVCLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVCLocationManager.h; sourceTree = "<group>"; };
+		46D70569196766F0008113A8 /* LVCLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVCLocationManager.m; sourceTree = "<group>"; };
+		46D7056B196766F0008113A8 /* LVCLocationPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVCLocationPickerController.h; sourceTree = "<group>"; };
+		46D7056C196766F0008113A8 /* LVCLocationPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVCLocationPickerController.m; sourceTree = "<group>"; };
+		46D7056E196766F0008113A8 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVCMapView.h; sourceTree = "<group>"; };
+		46D7056F196766F0008113A8 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVCMapView.m; sourceTree = "<group>"; };
+		46D70571196766F0008113A8 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map.png"; sourceTree = "<group>"; };
+		46D70572196766F0008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
+		46D70573196766F0008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
 		46D7E57B19670A13000EA7C3 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
 		46D7E57C19670A13000EA7C3 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
 		46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
 		46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLib.a; sourceTree = "<group>"; };
 		46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLibSim.a; sourceTree = "<group>"; };
-		46D7E58719671200000EA7C3 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "equi-map.png"; path = "Images/equi-map.png"; sourceTree = "<group>"; };
-		46D7E58819671200000EA7C3 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "equi-map@2x.png"; path = "Images/equi-map@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,15 +128,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		46265F2319673F7C0039A2B9 /* Location Manager */ = {
-			isa = PBXGroup;
-			children = (
-				46265F2419673F7C0039A2B9 /* LVCLocationManager.h */,
-				46265F2519673F7C0039A2B9 /* LVCLocationManager.m */,
-			);
-			path = "Location Manager";
-			sourceTree = "<group>";
-		};
 		464BBEF819619F2A00321590 /* CoreLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,45 +144,6 @@
 				464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		464BBF291962671A00321590 /* Images */ = {
-			isa = PBXGroup;
-			children = (
-				46D7E58719671200000EA7C3 /* equi-map.png */,
-				46D7E58819671200000EA7C3 /* equi-map@2x.png */,
-			);
-			name = Images;
-			sourceTree = "<group>";
-		};
-		464BBF2A1962672000321590 /* Map View */ = {
-			isa = PBXGroup;
-			children = (
-				464BBF1C1961BB8900321590 /* LVCMapView.h */,
-				464BBF1D1961BB8900321590 /* LVCMapView.m */,
-			);
-			name = "Map View";
-			sourceTree = "<group>";
-		};
-		464BBF2B1962672B00321590 /* Location Picker View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				468E10291958658400BA2C56 /* LVCLocationPickerController.h */,
-				468E102A1958658400BA2C56 /* LVCLocationPickerController.m */,
-			);
-			name = "Location Picker View Controller";
-			sourceTree = "<group>";
-		};
-		464BBF2C1962673F00321590 /* Location Picker */ = {
-			isa = PBXGroup;
-			children = (
-				468E110E195CFE3800BA2C56 /* locations.json */,
-				46265F2319673F7C0039A2B9 /* Location Manager */,
-				464BBF2B1962672B00321590 /* Location Picker View Controller */,
-				464BBF2A1962672000321590 /* Map View */,
-				464BBF291962671A00321590 /* Images */,
-			);
-			name = "Location Picker";
 			sourceTree = "<group>";
 		};
 		468E0FE51958656A00BA2C56 = {
@@ -229,12 +181,12 @@
 		468E0FF71958656A00BA2C56 /* LocationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				46D70566196766F0008113A8 /* MBPlacePickerController */,
 				468E10001958656A00BA2C56 /* LVCAppDelegate.h */,
 				468E10011958656A00BA2C56 /* LVCAppDelegate.m */,
 				468E10031958656A00BA2C56 /* Main.storyboard */,
 				468E10091958656A00BA2C56 /* LVCViewController.h */,
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
-				464BBF2C1962673F00321590 /* Location Picker */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
@@ -268,6 +220,54 @@
 				468E101C1958656A00BA2C56 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46D70566196766F0008113A8 /* MBPlacePickerController */ = {
+			isa = PBXGroup;
+			children = (
+				46D70567196766F0008113A8 /* Location Manager */,
+				46D7056A196766F0008113A8 /* Location View Controller */,
+				46D7056D196766F0008113A8 /* MapView */,
+				46D70570196766F0008113A8 /* Resources */,
+			);
+			path = MBPlacePickerController;
+			sourceTree = "<group>";
+		};
+		46D70567196766F0008113A8 /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				46D70568196766F0008113A8 /* LVCLocationManager.h */,
+				46D70569196766F0008113A8 /* LVCLocationManager.m */,
+			);
+			path = "Location Manager";
+			sourceTree = "<group>";
+		};
+		46D7056A196766F0008113A8 /* Location View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				46D7056B196766F0008113A8 /* LVCLocationPickerController.h */,
+				46D7056C196766F0008113A8 /* LVCLocationPickerController.m */,
+			);
+			path = "Location View Controller";
+			sourceTree = "<group>";
+		};
+		46D7056D196766F0008113A8 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				46D7056E196766F0008113A8 /* LVCMapView.h */,
+				46D7056F196766F0008113A8 /* LVCMapView.m */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		46D70570196766F0008113A8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				46D70571196766F0008113A8 /* equi-map.png */,
+				46D70572196766F0008113A8 /* equi-map@2x.png */,
+				46D70573196766F0008113A8 /* locations.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		46D7E57719670A13000EA7C3 /* CoreLib Headers */ = {
@@ -402,10 +402,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				468E100D1958656A00BA2C56 /* Images.xcassets in Resources */,
-				468E110F195CFE3800BA2C56 /* locations.json in Resources */,
-				46D7E58A19671200000EA7C3 /* equi-map@2x.png in Resources */,
-				46D7E58919671200000EA7C3 /* equi-map.png in Resources */,
 				468E10051958656A00BA2C56 /* Main.storyboard in Resources */,
+				46D70577196766F0008113A8 /* equi-map.png in Resources */,
+				46D70578196766F0008113A8 /* equi-map@2x.png in Resources */,
+				46D70579196766F0008113A8 /* locations.json in Resources */,
 				468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -425,12 +425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D70574196766F0008113A8 /* LVCLocationManager.m in Sources */,
 				468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */,
+				46D70575196766F0008113A8 /* LVCLocationPickerController.m in Sources */,
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
-				46265F2619673F7C0039A2B9 /* LVCLocationManager.m in Sources */,
-				468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */,
-				464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */,
+				46D70576196766F0008113A8 /* LVCMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

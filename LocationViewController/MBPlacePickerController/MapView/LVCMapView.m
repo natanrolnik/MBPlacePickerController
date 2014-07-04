@@ -50,7 +50,10 @@
 
 - (void)didMoveToSuperview
 {
-    [self _updateUserLocation];
+    if (self.showUserLocation)
+    {
+        [self _updateUserLocation];
+    }
 }
 
 - (void)removeFromSuperview
