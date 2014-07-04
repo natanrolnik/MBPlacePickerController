@@ -19,7 +19,7 @@
  *  TODO: Upload the feed to the server.
  */
 
-static const NSString *kURLLocationList = @"http://mosheberman.com/feeds/locations.json";
+static const NSString *kURLLocationList = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
 
 /**
  *  An annotation identifier.
