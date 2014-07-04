@@ -76,7 +76,9 @@
 - (IBAction)showLocationPickerController:(id)sender {
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.locationPickerController];
     
-    [self.locationPickerController display];
+    if (navigationController) {
+        [self.locationPickerController display];
+    }
 }
 
 /**
@@ -94,7 +96,7 @@
 
 - (IBAction)toggleShowUserLocation:(id)sender
 {
-    [self.locationPickerController setShowUserLocation:self.showUserLocationSwitch.on];
+    [self.locationPickerController.map setShowUserLocation:self.showUserLocationSwitch.on];
 }
 
 /**
@@ -105,7 +107,7 @@
 {
     if ([sender isKindOfClass:[UISlider class]]) {
         UISlider *s = sender;
-        [self.locationPickerController setMarkerSize:s.value];
+        [self.locationPickerController.map setMarkerDiameter:s.value];
     }
 
 }
