@@ -46,6 +46,13 @@
     return self;
 }
 
+- (void)removeFromSuperview
+{
+    [[self marker] removeFromSuperview];
+
+    [super removeFromSuperview];
+}
+
 #pragma mark - Converting between UIKit Coordinates and Geographical Coordinates
 
 /** ---
@@ -127,14 +134,14 @@
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
         
         /**
-         *  An center ring
+         *  A center ring
          */
         
 //        UIView *centerRing = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerRadius*(2.0/3.0), self.markerRadius*(2.0/3.0))];
         
         
         /**
-         *  An inner ring
+         *  An innermost ring
          */
     }
     
@@ -183,7 +190,7 @@
     
     UIView *marker = [self marker];
     marker.frame = CGRectMake(0, 0, self.markerDiameter, self.markerDiameter);
-    
+    marker.layer.cornerRadius = self.markerDiameter/2.0f;
     
     [marker setAlpha:0.0f];
     [marker setCenter:center];
