@@ -98,6 +98,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     self.map.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;;
     CGRect mapFrame = self.map.frame;
     mapFrame.origin.y = [self.topLayoutGuide length];
+    mapFrame.origin.x = CGRectGetMidX(self.view.bounds) - CGRectGetMidX(mapFrame);
     self.map.frame = mapFrame;
     [self.view addSubview:self.map];
     
