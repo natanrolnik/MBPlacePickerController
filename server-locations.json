@@ -352,5 +352,11 @@
   "longitude" : 8.535325,
   "latitude" : 47.381791,
   "continent" : "Europe"
+  },
+  {
+    "name" : "Cape Town",
+    "latitude" : -33.926,
+     "longitude" : 18.423,
+     "continent" : "Africa"
   }
   ]
