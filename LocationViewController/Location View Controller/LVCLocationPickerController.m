@@ -7,8 +7,10 @@
 //
 
 #import "LVCLocationPickerController.h"
-#import "CRLCoreLib.h"
 #import "LVCMapView.h"
+
+#import "CRLCoreLib.h"
+#import "LVCLocationManager.h"
 
 @import CoreLocation;
 @import MapKit;
@@ -22,10 +24,10 @@
 static const NSString *kURLLocationList = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
 
 /**
- *  An annotation identifier.
+ *
  */
 
-static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-location";
+static NSIndexPath *previousIndexPath = nil;
 
 /**
  *
@@ -75,7 +77,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         _map = [[LVCMapView alloc] init];
         self.view.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
         _sortByContinent = YES;
-        _showUserLocation = NO;
     }
     return self;
 }
@@ -177,7 +178,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    previousIndexPath = nil;
     [self updateLocationFromServer];
 }
 
@@ -235,9 +236,12 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    NSDictionary *location =  nil;
+    
     /**
-     *
+     *  If the locations are sorted by continent, pull out the appropriate one.
      */
+    
     if (self.sortByContinent == YES)
     {
         //  Gets the name of the continent.
@@ -248,13 +252,10 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         
         //  Gets a specific location from the continent.
         NSInteger row = indexPath.row;
-        if (row < locationsForContinent.count) {
-            NSDictionary *location = locationsForContinent[row];
-            cell.textLabel.text = location[@"name"];
-        }
-        else
+        
+        if (row < locationsForContinent.count)
         {
-            cell.textLabel.text = [NSString stringWithFormat:@"%@", @(row)];
+           location = locationsForContinent[row];
         }
     }
     
@@ -266,10 +267,31 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         
         if (self.locations.count > indexPath.row)
         {
-            NSDictionary *location = self.locations[indexPath.row];
-            cell.textLabel.text = location[@"name"];
+            location = self.locations[indexPath.row];
         }
     }
+    
+    cell.textLabel.text = location[@"name"];
+    
+    /**
+     *  Compare the display cell's backing location to the currently selected one.
+     */
+    
+    CGFloat lat = [location[@"latitude"] floatValue];
+    CGFloat lon = [location [@"longitude"] floatValue];
+    
+    CGFloat storedLat = self.location.coordinate.latitude;
+    CGFloat storedLon = self.location.coordinate.longitude;
+    
+    if (lat == storedLat && lon == storedLon)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -360,8 +382,16 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
             }
         }
         
+        /**
+         *  Extract the location from the tapped location.
+         */
+        
         CLLocationDegrees latitude = [location[@"latitude"] floatValue];
         CLLocationDegrees longitude = [location[@"longitude"] floatValue];
+        
+        /**
+         *  Store it as a CLLocation in the location picker.
+         */
         
         CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         
@@ -372,6 +402,22 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
          */
         
         [self.map markCoordinate:coordinate];
+        
+        /**
+         *
+         */
+        
+        if (previousIndexPath && ! [indexPath isEqual:previousIndexPath])
+        {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath, previousIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        else
+        {
+            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+        
+        previousIndexPath = indexPath;
+        
     }
 }
 
@@ -559,4 +605,24 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 {
     [self.map setMarkerDiameter:markerSize];
 }
+
+/**
+ *  A flag to determine if the user's location should be displayed.
+ *  Default is NO.
+ */
+
+- (BOOL)showUserLocation
+{
+    return self.map.showUserLocation;
+}
+
+/**
+ *  @param showUserLocation A parameter controlling wether to show the user's location.
+ */
+
+- (void)setShowUserLocation:(BOOL)showUserLocation
+{
+    [self.map setShowUserLocation:showUserLocation];
+}
+
 @end
