@@ -134,13 +134,6 @@
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
         
         /**
-         *  A center ring
-         */
-        
-//        UIView *centerRing = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerRadius*(2.0/3.0), self.markerRadius*(2.0/3.0))];
-        
-        
-        /**
          *  An innermost ring
          */
     }
@@ -189,12 +182,22 @@
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
     
     UIView *marker = [self marker];
-    marker.frame = CGRectMake(0, 0, self.markerDiameter, self.markerDiameter);
+
     marker.layer.cornerRadius = self.markerDiameter/2.0f;
     
-    [marker setAlpha:0.0f];
-    [marker setCenter:center];
-    
+    if (![self.subviews containsObject:[self marker]])
+    {
+        marker.frame = CGRectMake(0, 0, 0, 0);
+        
+        [marker setAlpha:0.0f];
+        [marker setCenter:center];
+    }
+    else
+    {
+        CGRect markerRect = marker.frame;
+        markerRect.size = CGSizeMake(self.markerDiameter, self.markerDiameter);
+        marker.frame = markerRect;
+    }
     
     [self addSubview:marker];
     [UIView animateWithDuration:0.3 animations:^{
