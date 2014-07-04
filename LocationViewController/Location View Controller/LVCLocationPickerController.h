@@ -29,4 +29,11 @@
 
 @property (nonatomic, assign) BOOL sortByContinent;
 
+/**
+ *  A flag to determine if the user's location should be displayed.
+ *  Default is NO.
+ */
+
+@property (nonatomic, assign) BOOL showUserLocation;
+
 @end
