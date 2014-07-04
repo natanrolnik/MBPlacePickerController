@@ -136,7 +136,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
      *  Load up locations.
      */
     
-    [self loadLocations];
+    [self loadLocationsFromBundle];
     
     /**
      *  Configure buttons.
@@ -160,33 +160,6 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
-    /**
-     *  Download a updated location list.
-     */
-    
-    NSURL *url = [NSURL URLWithString:(NSString *)kURLLocationList];
-    
-    [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
-        if (data)
-        {
-            NSError *error = nil;
-            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-            
-            if (error && ! locations)
-            {
-                NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
-            }
-            else if (locations)
-            {
-                self.locations = locations;
-                //  TODO: Ensure existing location is in list.
-            }
-        }
-        else{
-            NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
-        }
-    }];
-    
 }
 
 
@@ -196,16 +169,11 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Presenting and Dismissing the Picker
+/** ---
+ *  @name Presenting and Dismissing the Picker
+ *  ---
+ */
 
 /**
  *  Asks the rootViewController of the keyWindow to display self.
@@ -241,6 +209,10 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 
 #pragma mark - UITableView
 
+/** ---
+ *  @name UITableView Data Source
+ *  ---
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
@@ -306,6 +278,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 /**
  *  Return enough sections for each continent.
  */
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (self.sortByContinent == YES)
@@ -314,6 +287,32 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     }
     return 1;
 }
+
+/**
+ *  @param tableView The table view.
+ *  @param section A section.
+ *
+ *  @return The string "A-Z" if alphabetical, otherwise the name of a continent.
+ */
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *title = @"A-Z";
+    
+    if (self.sortByContinent == YES)
+    {
+        title = [self _sortedContinentNames][section];
+    }
+    
+    return title;
+}
+
+#pragma mark - UITableViewDelegate
+
+/** ---
+ *  @name UITableViewDelegate
+ *  ---
+ */
 
 /**
  *  Handle cell selection.
@@ -358,29 +357,54 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     }
 }
 
+#pragma mark - Location List
+
 /**
- *  Return the continent name for each section.
+ *  Updates the location data from the server, then reloads the tableview.
  */
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (void)updateLocationFromServer
 {
-    NSString *title = nil;
+    /**
+     *  Download a updated location list.
+     */
     
-    if (self.sortByContinent == YES)
-    {
-        title = [self _sortedContinentNames][section];
-    }
+    NSURL *url = [NSURL URLWithString:(NSString *)kURLLocationList];
     
-    return title;
+    [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
+        if (data)
+        {
+            NSError *error = nil;
+            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+            
+            if (error && ! locations)
+            {
+                NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
+            }
+            else if (locations)
+            {
+                if (!locations.count) {
+                    NSLog(@"LocationViewController (CRLCoreLib): Recieved an empty list of locations.");
+                }
+                else
+                {
+                    [self setLocations:locations];
+                    //  TODO: Ensure existing location is in list, if not, add it.
+                    [[self tableView] reloadData];
+                }
+            }
+        }
+        else{
+            NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
+        }
+    }];
 }
-
-#pragma mark - Location List
 
 /**
  *  Loads the locations from the app bundle.
  */
 
-- (void)loadLocations
+- (void)loadLocationsFromBundle
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
     NSData *data = [[NSData alloc] initWithContentsOfFile:path];
@@ -401,7 +425,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
  *  Converts an array of locations to a dictionary of locations sorted by continent.
  */
 
-- (void)processLocations
+- (void)_sortArrayOfLocationsByContinent
 {
     NSMutableDictionary *continents = [[NSMutableDictionary alloc] init];
     
@@ -436,6 +460,12 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     self.locationsByContinent = continents;
 }
 
+#pragma mark - Accessing Sorted Locations
+
+/** ---
+ *  @name Accessing Sorted Locations
+ *  ---
+ */
 /**
  *  @return The continents, sorted by name.
  */
@@ -446,6 +476,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 }
 
 #pragma mark - Custom Setters
+
 /** ---
  *  @name Custom Setters
  *  ---
@@ -462,7 +493,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     if (locations)
     {
         _locations = locations;
-        [self processLocations];    //  Sort by continent.
+        [self _sortArrayOfLocationsByContinent];    //  Sort by continent.
     }
 }
 
@@ -474,7 +505,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 {
     _sortByContinent = sortByContinent;
     
-    [self loadLocations];
+    [self loadLocationsFromBundle];
     
     [[self tableView] reloadData];
 }
