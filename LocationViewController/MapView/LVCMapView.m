@@ -201,6 +201,9 @@
     
     [self addSubview:marker];
     [UIView animateWithDuration:0.3 animations:^{
+        CGRect markerRect = marker.frame;
+        markerRect.size = CGSizeMake(self.markerDiameter, self.markerDiameter);
+        marker.frame = markerRect;
         [marker setCenter:center];
         [marker setAlpha:1.0];
     }];
