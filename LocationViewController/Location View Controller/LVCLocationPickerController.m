@@ -147,8 +147,8 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = button;
     
-//    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
-//    self.navigationItem.leftBarButtonItem = autolocateButton;
+    //    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
+    //    self.navigationItem.leftBarButtonItem = autolocateButton;
     
     /**
      *  Set a background color.
@@ -201,7 +201,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 {
     if ([self.parentViewController isKindOfClass:[UINavigationController class]])
     {
-     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self.parentViewController animated:YES completion:nil];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self.parentViewController animated:YES completion:nil];
     }
     else
     {
@@ -258,17 +258,17 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
         }
     }
     
-    /** 
+    /**
      *  ...else just try to find an unsorted location.
      */
     else
     {
         
-         if (self.locations.count > indexPath.row)
-         {
-             NSDictionary *location = self.locations[indexPath.row];
-             cell.textLabel.text = location[@"name"];
-         }
+        if (self.locations.count > indexPath.row)
+        {
+            NSDictionary *location = self.locations[indexPath.row];
+            cell.textLabel.text = location[@"name"];
+        }
     }
     return cell;
 }
@@ -342,7 +342,7 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
     if (self.locations.count > indexPath.row)
     {
-
+        
         NSDictionary *location = self.locations[indexPath.row];
         
         if (self.sortByContinent)
@@ -406,6 +406,9 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
                 }
                 else
                 {
+                    NSString *path = [[[CRLCoreLib fileManager] pathForApplicationLibraryDirectory] stringByAppendingString:@"/locations.json"];;
+                    [[CRLCoreLib fileManager] writeData:data toPath:path];
+                    
                     [self setLocations:locations];
                     //  TODO: Ensure existing location is in list, if not, add it.
                     [[self tableView] reloadData];
@@ -424,18 +427,36 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
 
 - (void)loadLocationsFromBundle
 {
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
-    NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+    
+    NSString *applicationString = [[CRLCoreLib fileManager] pathForApplicationLibraryDirectory];
+    NSString *locationsPath = [applicationString stringByAppendingString:@"/locations.json"];
+    NSData *localData = [[NSData alloc] initWithContentsOfFile:locationsPath];
+    
+    
     NSError *error = nil;
     
-    if (data) {
-        NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    
-        self.locations = locations;
+    if (!localData)
+    {
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
+        NSData *data = [[NSData alloc] initWithContentsOfFile:path];
+
+        
+        if (data) {
+            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+            
+            self.locations = locations;
+        }
+        else
+        {
+            NSLog(@"Data load failed.");
+        }
     }
     else
     {
-        NSLog(@"Data load failed.");
+        NSArray *locations = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&error];
+        
+        self.locations = locations;
     }
 }
 
