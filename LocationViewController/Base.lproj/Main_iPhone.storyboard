@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpO-a7-XW8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpO-a7-XW8">
                                 <rect key="frame" x="149" y="273" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -26,9 +26,37 @@
                                     <action selector="showLocationPickerController:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tbQ-pa-Ivu"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eL3-iR-nMX">
+                                <rect key="frame" x="200" y="342" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleSortByContinent:" destination="vXZ-lx-hvc" eventType="valueChanged" id="yze-3p-2oG"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorted by continent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISI-O9-CR0">
+                                <rect key="frame" x="35" y="347" width="152" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="jpO-a7-XW8" secondAttribute="centerY" id="3g2-2D-nSV"/>
+                            <constraint firstItem="ISI-O9-CR0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="35" id="Cen-U1-w5A"/>
+                            <constraint firstItem="ISI-O9-CR0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="327" id="Jwf-SM-98G"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="eL3-iR-nMX" secondAttribute="bottom" constant="195" id="Sn0-bS-jfw"/>
+                            <constraint firstAttribute="centerX" secondItem="jpO-a7-XW8" secondAttribute="centerX" id="XV9-yC-FX4"/>
+                            <constraint firstAttribute="trailing" secondItem="eL3-iR-nMX" secondAttribute="trailing" constant="71" id="ebg-Ih-jTr"/>
+                            <constraint firstItem="eL3-iR-nMX" firstAttribute="leading" secondItem="ISI-O9-CR0" secondAttribute="trailing" constant="13" id="fy0-dI-ezC"/>
+                            <constraint firstItem="eL3-iR-nMX" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="322" id="nGa-Yf-GM8"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ISI-O9-CR0" secondAttribute="bottom" constant="200" id="xUd-OX-0ln"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="sortByContinentSwitch" destination="eL3-iR-nMX" id="R4O-J3-ibC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
