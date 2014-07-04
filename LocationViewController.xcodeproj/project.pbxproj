@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46265F2619673F7C0039A2B9 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46265F2519673F7C0039A2B9 /* MBLocationManager.m */; };
 		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
 		464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF1D1961BB8900321590 /* LVCMapView.m */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
@@ -63,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		46265F2419673F7C0039A2B9 /* MBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocationManager.h; sourceTree = "<group>"; };
+		46265F2519673F7C0039A2B9 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
 		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
 		464BBF1C1961BB8900321590 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCMapView.h; path = MapView/LVCMapView.h; sourceTree = "<group>"; };
 		464BBF1D1961BB8900321590 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCMapView.m; path = MapView/LVCMapView.m; sourceTree = "<group>"; };
@@ -125,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46265F2319673F7C0039A2B9 /* Location Manager */ = {
+			isa = PBXGroup;
+			children = (
+				46265F2419673F7C0039A2B9 /* MBLocationManager.h */,
+				46265F2519673F7C0039A2B9 /* MBLocationManager.m */,
+			);
+			path = "Location Manager";
+			sourceTree = "<group>";
+		};
 		464BBEF819619F2A00321590 /* CoreLib */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,8 @@
 		464BBF2C1962673F00321590 /* Location Picker */ = {
 			isa = PBXGroup;
 			children = (
+				468E110E195CFE3800BA2C56 /* locations.json */,
+				46265F2319673F7C0039A2B9 /* Location Manager */,
 				464BBF2B1962672B00321590 /* Location Picker View Controller */,
 				464BBF2A1962672000321590 /* Map View */,
 				464BBF291962671A00321590 /* Images */,
@@ -221,7 +235,6 @@
 				468E10091958656A00BA2C56 /* LVCViewController.h */,
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
 				464BBF2C1962673F00321590 /* Location Picker */,
-				468E110E195CFE3800BA2C56 /* locations.json */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
@@ -415,6 +428,7 @@
 				468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */,
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
+				46265F2619673F7C0039A2B9 /* MBLocationManager.m in Sources */,
 				468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */,
 				464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */,
 			);
