@@ -36,4 +36,12 @@
 
 @property (nonatomic, assign) BOOL showUserLocation;
 
+/**
+ *  Set the diameter of the marker on the map.
+ *
+ *  @param markerSize The diameter to use.
+ */
+
+- (void)setMarkerSize:(CGFloat)markerSize;
+
 @end

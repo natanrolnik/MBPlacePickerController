@@ -527,4 +527,15 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
     [[self tableView] reloadData];
 }
+
+/**
+ *  Set the diameter of the marker on the map.
+ *
+ *  @param markerSize The diameter to use.
+ */
+
+- (void)setMarkerSize:(CGFloat)markerSize
+{
+    [self.map setMarkerDiameter:markerSize];
+}
 @end
