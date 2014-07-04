@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
-		464BBF141961A65600321590 /* LVCAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF131961A65600321590 /* LVCAnnotation.m */; };
 		464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF1D1961BB8900321590 /* LVCMapView.m */; };
 		464BBF2719622DA700321590 /* map-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF2519622DA700321590 /* map-iphone.png */; };
 		464BBF2819622DA700321590 /* map-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF2619622DA700321590 /* map-iphone@2x.png */; };
@@ -29,6 +28,8 @@
 		468E10201958656A00BA2C56 /* LocationViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E101F1958656A00BA2C56 /* LocationViewControllerTests.m */; };
 		468E102B1958658400BA2C56 /* LVCLocationPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E102A1958658400BA2C56 /* LVCLocationPickerController.m */; };
 		468E110F195CFE3800BA2C56 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 468E110E195CFE3800BA2C56 /* locations.json */; };
+		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
+		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		464BBEFB19619F2A00321590 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
-		464BBEFC19619F2A00321590 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
-		464BBEFD19619F2A00321590 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
-		464BBEFE19619F2A00321590 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
 		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
-		464BBF121961A65600321590 /* LVCAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCAnnotation.h; path = "Location View Controller/LVCAnnotation.h"; sourceTree = "<group>"; };
-		464BBF131961A65600321590 /* LVCAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCAnnotation.m; path = "Location View Controller/LVCAnnotation.m"; sourceTree = "<group>"; };
 		464BBF1C1961BB8900321590 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCMapView.h; path = MapView/LVCMapView.h; sourceTree = "<group>"; };
 		464BBF1D1961BB8900321590 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCMapView.m; path = MapView/LVCMapView.m; sourceTree = "<group>"; };
 		464BBF2519622DA700321590 /* map-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-iphone.png"; path = "Images/map-iphone.png"; sourceTree = "<group>"; };
@@ -97,6 +92,12 @@
 		468E10291958658400BA2C56 /* LVCLocationPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCLocationPickerController.h; path = "Location View Controller/LVCLocationPickerController.h"; sourceTree = "<group>"; };
 		468E102A1958658400BA2C56 /* LVCLocationPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCLocationPickerController.m; path = "Location View Controller/LVCLocationPickerController.m"; sourceTree = "<group>"; };
 		468E110E195CFE3800BA2C56 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
+		46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
+		46D7E57B19670A13000EA7C3 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
+		46D7E57C19670A13000EA7C3 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
+		46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
+		46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLib.a; sourceTree = "<group>"; };
+		46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLibSim.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,9 +105,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */,
 				464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */,
 				468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */,
 				468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */,
+				46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */,
 				468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,29 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */,
-				464BBEF919619F2A00321590 /* include */,
 			);
 			name = CoreLib;
 			path = LocationViewController/CoreLib;
-			sourceTree = "<group>";
-		};
-		464BBEF919619F2A00321590 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				464BBEFA19619F2A00321590 /* CRLCoreLib */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		464BBEFA19619F2A00321590 /* CRLCoreLib */ = {
-			isa = PBXGroup;
-			children = (
-				464BBEFB19619F2A00321590 /* CRLCoreLib.h */,
-				464BBEFC19619F2A00321590 /* CRLDataManager.h */,
-				464BBEFD19619F2A00321590 /* CRLFileManager.h */,
-				464BBEFE19619F2A00321590 /* CRLNetworkManager.h */,
-			);
-			path = CRLCoreLib;
 			sourceTree = "<group>";
 		};
 		464BBF041961A1D100321590 /* Products */ = {
@@ -160,6 +143,43 @@
 				464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		464BBF291962671A00321590 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				464BBF2519622DA700321590 /* map-iphone.png */,
+				464BBF2619622DA700321590 /* map-iphone@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		464BBF2A1962672000321590 /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				464BBF1C1961BB8900321590 /* LVCMapView.h */,
+				464BBF1D1961BB8900321590 /* LVCMapView.m */,
+			);
+			name = "Map View";
+			sourceTree = "<group>";
+		};
+		464BBF2B1962672B00321590 /* Location Picker View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				468E10291958658400BA2C56 /* LVCLocationPickerController.h */,
+				468E102A1958658400BA2C56 /* LVCLocationPickerController.m */,
+			);
+			name = "Location Picker View Controller";
+			sourceTree = "<group>";
+		};
+		464BBF2C1962673F00321590 /* Location Picker */ = {
+			isa = PBXGroup;
+			children = (
+				464BBF2B1962672B00321590 /* Location Picker View Controller */,
+				464BBF291962671A00321590 /* Images */,
+				464BBF2A1962672000321590 /* Map View */,
+			);
+			name = "Location Picker";
 			sourceTree = "<group>";
 		};
 		468E0FE51958656A00BA2C56 = {
@@ -184,6 +204,7 @@
 		468E0FF01958656A00BA2C56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46D7E57719670A13000EA7C3 /* CoreLib Headers */,
 				464BBEF819619F2A00321590 /* CoreLib */,
 				468E0FF11958656A00BA2C56 /* Foundation.framework */,
 				468E0FF31958656A00BA2C56 /* CoreGraphics.framework */,
@@ -202,15 +223,8 @@
 				468E10061958656A00BA2C56 /* Main_iPad.storyboard */,
 				468E10091958656A00BA2C56 /* LVCViewController.h */,
 				468E100A1958656A00BA2C56 /* LVCViewController.m */,
-				468E10291958658400BA2C56 /* LVCLocationPickerController.h */,
-				468E102A1958658400BA2C56 /* LVCLocationPickerController.m */,
-				464BBF121961A65600321590 /* LVCAnnotation.h */,
-				464BBF131961A65600321590 /* LVCAnnotation.m */,
-				464BBF2519622DA700321590 /* map-iphone.png */,
-				464BBF2619622DA700321590 /* map-iphone@2x.png */,
+				464BBF2C1962673F00321590 /* Location Picker */,
 				468E110E195CFE3800BA2C56 /* locations.json */,
-				464BBF1C1961BB8900321590 /* LVCMapView.h */,
-				464BBF1D1961BB8900321590 /* LVCMapView.m */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
@@ -244,6 +258,36 @@
 				468E101C1958656A00BA2C56 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		46D7E57719670A13000EA7C3 /* CoreLib Headers */ = {
+			isa = PBXGroup;
+			children = (
+				46D7E57819670A13000EA7C3 /* include */,
+				46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */,
+				46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */,
+			);
+			name = "CoreLib Headers";
+			path = LocationViewController/CoreLib;
+			sourceTree = "<group>";
+		};
+		46D7E57819670A13000EA7C3 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				46D7E57919670A13000EA7C3 /* CRLCoreLib */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		46D7E57919670A13000EA7C3 /* CRLCoreLib */ = {
+			isa = PBXGroup;
+			children = (
+				46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */,
+				46D7E57B19670A13000EA7C3 /* CRLDataManager.h */,
+				46D7E57C19670A13000EA7C3 /* CRLFileManager.h */,
+				46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */,
+			);
+			path = CRLCoreLib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,7 +416,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				464BBF141961A65600321590 /* LVCAnnotation.m in Sources */,
 				468E100B1958656A00BA2C56 /* LVCViewController.m in Sources */,
 				468E10021958656A00BA2C56 /* LVCAppDelegate.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
