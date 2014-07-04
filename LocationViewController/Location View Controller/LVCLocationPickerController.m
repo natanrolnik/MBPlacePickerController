@@ -117,15 +117,16 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    
-    /**
-     *  TODO: Re-size map.
-     */
-    
-}
+#pragma mark - View Lifecycle
+
+/** ---
+ *  @name View Lifecycle
+ *  ---
+ */
+
+/**
+ *  Calls the vanilla viewDidLoad then does a ton of loading itself...
+ */
 
 - (void)viewDidLoad
 {
@@ -162,6 +163,22 @@ static const NSString *kAnnotationIdentifier = @"com.mosheberman.selected-locati
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    /**
+     *  TODO: Re-size map if necessary.
+     */
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self updateLocationFromServer];
+}
 
 - (void)didReceiveMemoryWarning
 {
