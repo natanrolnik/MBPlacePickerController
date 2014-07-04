@@ -47,9 +47,9 @@
 
 /**
  *  The radius of the indicator. The default is 30.0f;
- *   Setting to a negative will revert to default.
+ *   Setting to a negative will do nothing.
  */
 
-@property (nonatomic, assign) CGFloat markerRadius;
+@property (nonatomic, assign) CGFloat markerDiameter;
 
 @end

@@ -37,10 +37,10 @@
 
 - (instancetype)init
 {
-    self = [super initWithImage:[UIImage imageNamed:@"map-iphone"]];
+    self = [super initWithImage:[UIImage imageNamed:@"equi-map"]];
     if (self)
     {
-        _markerRadius = 30.0f;
+        _markerDiameter = 30.0f;
         _markerColor = [UIColor redColor];
     }
     return self;
@@ -118,14 +118,30 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerRadius, self.markerRadius)];
+        /**
+         *  An outer ring
+         */
+        
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerDiameter, self.markerDiameter)];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
+        
+        /**
+         *  An center ring
+         */
+        
+//        UIView *centerRing = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerRadius*(2.0/3.0), self.markerRadius*(2.0/3.0))];
+        
+        
+        /**
+         *  An inner ring
+         */
     }
     
     marker.layer.borderColor = [self.markerColor CGColor];
     marker.backgroundColor = [self.markerColor colorWithAlphaComponent:0.7];
     
+
     return marker;
 }
 
@@ -166,7 +182,7 @@
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
     
     UIView *marker = [self marker];
-    marker.frame = CGRectMake(0, 0, self.markerRadius, self.markerRadius);
+    marker.frame = CGRectMake(0, 0, self.markerDiameter, self.markerDiameter);
     
     
     [marker setAlpha:0.0f];
@@ -218,16 +234,16 @@
 }
 
 /**
- *  Set the indicator radius. Setting to a negative will revert to default.
+ *  Set the indicator radius. Setting to a negative will do nothing.
  */
 
-- (void)setMarkerRadius:(CGFloat)markerRadius
+- (void)setMarkerDiameter:(CGFloat)markerRadius
 {
     if (markerRadius < 0)
     {
-        markerRadius = 30.0f;
+        return;
     }
-    _markerRadius = markerRadius;
+    _markerDiameter = markerRadius;
     
     [self refreshMarker];
 }
