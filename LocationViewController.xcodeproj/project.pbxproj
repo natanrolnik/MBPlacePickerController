@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
 		464BBF1E1961BB8900321590 /* LVCMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 464BBF1D1961BB8900321590 /* LVCMapView.m */; };
-		464BBF2719622DA700321590 /* map-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF2519622DA700321590 /* map-iphone.png */; };
-		464BBF2819622DA700321590 /* map-iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 464BBF2619622DA700321590 /* map-iphone@2x.png */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
 		468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF31958656A00BA2C56 /* CoreGraphics.framework */; };
 		468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
@@ -29,8 +27,6 @@
 		468E110F195CFE3800BA2C56 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 468E110E195CFE3800BA2C56 /* locations.json */; };
 		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
 		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
-		46D7E58519670E9F000EA7C3 /* google-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58319670E9F000EA7C3 /* google-map.png */; };
-		46D7E58619670E9F000EA7C3 /* google-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58419670E9F000EA7C3 /* google-map@2x.png */; };
 		46D7E58919671200000EA7C3 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58719671200000EA7C3 /* equi-map.png */; };
 		46D7E58A19671200000EA7C3 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7E58819671200000EA7C3 /* equi-map@2x.png */; };
 /* End PBXBuildFile section */
@@ -70,8 +66,6 @@
 		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
 		464BBF1C1961BB8900321590 /* LVCMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LVCMapView.h; path = MapView/LVCMapView.h; sourceTree = "<group>"; };
 		464BBF1D1961BB8900321590 /* LVCMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LVCMapView.m; path = MapView/LVCMapView.m; sourceTree = "<group>"; };
-		464BBF2519622DA700321590 /* map-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-iphone.png"; path = "Images/map-iphone.png"; sourceTree = "<group>"; };
-		464BBF2619622DA700321590 /* map-iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "map-iphone@2x.png"; path = "Images/map-iphone@2x.png"; sourceTree = "<group>"; };
 		468E0FEE1958656A00BA2C56 /* LocationViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E0FF11958656A00BA2C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		468E0FF31958656A00BA2C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -100,8 +94,6 @@
 		46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
 		46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLib.a; sourceTree = "<group>"; };
 		46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLibSim.a; sourceTree = "<group>"; };
-		46D7E58319670E9F000EA7C3 /* google-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google-map.png"; path = "Images/google-map.png"; sourceTree = "<group>"; };
-		46D7E58419670E9F000EA7C3 /* google-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "google-map@2x.png"; path = "Images/google-map@2x.png"; sourceTree = "<group>"; };
 		46D7E58719671200000EA7C3 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "equi-map.png"; path = "Images/equi-map.png"; sourceTree = "<group>"; };
 		46D7E58819671200000EA7C3 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "equi-map@2x.png"; path = "Images/equi-map@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,10 +148,6 @@
 			children = (
 				46D7E58719671200000EA7C3 /* equi-map.png */,
 				46D7E58819671200000EA7C3 /* equi-map@2x.png */,
-				46D7E58319670E9F000EA7C3 /* google-map.png */,
-				46D7E58419670E9F000EA7C3 /* google-map@2x.png */,
-				464BBF2519622DA700321590 /* map-iphone.png */,
-				464BBF2619622DA700321590 /* map-iphone@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -186,8 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				464BBF2B1962672B00321590 /* Location Picker View Controller */,
-				464BBF291962671A00321590 /* Images */,
 				464BBF2A1962672000321590 /* Map View */,
+				464BBF291962671A00321590 /* Images */,
 			);
 			name = "Location Picker";
 			sourceTree = "<group>";
@@ -402,13 +390,9 @@
 			files = (
 				468E100D1958656A00BA2C56 /* Images.xcassets in Resources */,
 				468E110F195CFE3800BA2C56 /* locations.json in Resources */,
-				464BBF2819622DA700321590 /* map-iphone@2x.png in Resources */,
 				46D7E58A19671200000EA7C3 /* equi-map@2x.png in Resources */,
 				46D7E58919671200000EA7C3 /* equi-map.png in Resources */,
 				468E10051958656A00BA2C56 /* Main.storyboard in Resources */,
-				464BBF2719622DA700321590 /* map-iphone.png in Resources */,
-				46D7E58519670E9F000EA7C3 /* google-map.png in Resources */,
-				46D7E58619670E9F000EA7C3 /* google-map@2x.png in Resources */,
 				468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8D3F8E1C-B7E4-4445-9B98-6ED59EC28615</string>
+	<key>IDESourceControlProjectName</key>
+	<string>LocationViewController</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7FED5FF3-03DF-4A50-AEB2-BE6A34AD83A8</key>
+		<string>https://github.com/MosheBerman/LocationViewController.git</string>
+		<key>971EFC42-5AE4-49E1-B62E-8C826AF6B34D</key>
+		<string>https://github.com/MosheBerman/corlear-lib.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LocationViewController.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7FED5FF3-03DF-4A50-AEB2-BE6A34AD83A8</key>
+		<string>../..</string>
+		<key>971EFC42-5AE4-49E1-B62E-8C826AF6B34D</key>
+		<string>../../../CRLCoreLib</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/MosheBerman/LocationViewController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7FED5FF3-03DF-4A50-AEB2-BE6A34AD83A8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>971EFC42-5AE4-49E1-B62E-8C826AF6B34D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CRLCoreLib</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7FED5FF3-03DF-4A50-AEB2-BE6A34AD83A8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>LocationViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>
