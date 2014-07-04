@@ -103,6 +103,28 @@
 }
 
 /**
+ *  A marker for userlocation.
+ */
+
+- (UIView *)userMarker
+{
+    static UIView *marker = nil;
+    
+    if (!marker)
+    {
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7.0, 7.0f
+                                                          )];
+        marker.layer.borderWidth = 1.0f;
+        marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
+    }
+    
+    marker.layer.borderColor = [[UIView appearance] tintColor].CGColor;
+    marker.backgroundColor = [[UIColor colorWithCGColor:marker.layer.borderColor] colorWithAlphaComponent:0.7];
+    
+    return marker;
+}
+
+/**
  *  Displays a marker on the given coordinate.
  */
 
