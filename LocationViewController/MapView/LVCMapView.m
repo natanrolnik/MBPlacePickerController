@@ -7,6 +7,7 @@
 //
 
 #import "LVCMapView.h"
+#import "LVCLocationManager.h"
 
 @interface LVCMapView ()
 
@@ -42,8 +43,14 @@
     {
         _markerDiameter = 30.0f;
         _markerColor = [UIColor redColor];
+        _showUserLocation = NO;
     }
     return self;
+}
+
+- (void)didMoveToSuperview
+{
+    [self _updateUserLocation];
 }
 
 - (void)removeFromSuperview
@@ -155,12 +162,12 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7.0, 7.0f)];
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15.0f, 15.0f)];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
     }
     
-    marker.layer.borderColor = [[UIView appearance] tintColor].CGColor;
+    marker.layer.borderColor = self.tintColor.CGColor;
     marker.backgroundColor = [[UIColor colorWithCGColor:marker.layer.borderColor] colorWithAlphaComponent:0.7];
     
     return marker;
@@ -200,7 +207,7 @@
     }
     
     [self addSubview:marker];
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         CGRect markerRect = marker.frame;
         markerRect.size = CGSizeMake(self.markerDiameter, self.markerDiameter);
         marker.frame = markerRect;
@@ -259,5 +266,49 @@
     _markerDiameter = markerRadius;
     
     [self refreshMarker];
+}
+
+/**
+ *  @param showUserLocation A parameter controlling wether to show the user's location.
+ */
+
+- (void)setShowUserLocation:(BOOL)showUserLocation
+{
+    _showUserLocation = showUserLocation;
+    
+    if (_showUserLocation)
+    {
+        [self _updateUserLocation];
+    }
+    else
+    {
+        [[self userMarker] removeFromSuperview];
+        [[LVCLocationManager sharedManager] stopUpdatingLocation];
+    }
+}
+
+#pragma mark - Update User Location
+
+/**
+ *
+ */
+
+- (void)_updateUserLocation
+{
+    
+    [[LVCLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
+
+            
+            CLLocation *location = [[LVCLocationManager sharedManager] location];
+            
+            if (location) {
+                CGPoint userMarkerCenter = [self pointFromLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
+                [[self userMarker] setCenter:userMarkerCenter];
+                [self addSubview:[self userMarker]];
+            }
+            
+
+    }];
+
 }
 @end
