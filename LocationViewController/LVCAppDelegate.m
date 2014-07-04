@@ -13,6 +13,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    /**
+     *  Set the app tint color to a shade of purple.
+     */
+    
+    [[UIView appearance] setTintColor:[UIColor colorWithRed:0.61 green:0.29 blue:0.93 alpha:1.00]];
     return YES;
 }
 							
