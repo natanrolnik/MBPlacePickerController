@@ -18,18 +18,40 @@
 
 @end
 
+/**
+ *  This view is capable of displaying markers on a map.
+ */
+
 @implementation LVCMapView
+
+#pragma mark - Initializers
+
+/** ---
+ *  @name Initializers
+ *  ---
+ */
+
+/**
+ *  @return An initialized map picker view.
+ */
 
 - (instancetype)init
 {
     self = [super initWithImage:[UIImage imageNamed:@"map-iphone"]];
     if (self)
     {
-        _indicatorRadius = 30.0f;
-        _indicatorColor = [UIColor redColor];
+        _markerRadius = 30.0f;
+        _markerColor = [UIColor redColor];
     }
     return self;
 }
+
+#pragma mark - Converting between UIKit Coordinates and Geographical Coordinates
+
+/** ---
+ *  @name Converting between UIKit Coordinates and Geographical Coordinates
+ *  ---
+ */
 
 /**
  *  Converts a latitude and longitude to a CGPoint in the map view's coordinate space.
@@ -80,6 +102,12 @@
     return coord;
 }
 
+#pragma mark - Getting Marker Views
+
+/** ---
+ *  @name Getting Marker Views
+ *  ---
+ */
 /**
  *  A marker for a location.
  */
@@ -90,20 +118,19 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius
-                                                          )];
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerRadius, self.markerRadius)];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
     }
     
-    marker.layer.borderColor = [self.indicatorColor CGColor];
-    marker.backgroundColor = [self.indicatorColor colorWithAlphaComponent:0.7];
+    marker.layer.borderColor = [self.markerColor CGColor];
+    marker.backgroundColor = [self.markerColor colorWithAlphaComponent:0.7];
     
     return marker;
 }
 
 /**
- *  A marker for userlocation.
+ *  @return A marker representing the user's location.
  */
 
 - (UIView *)userMarker
@@ -112,8 +139,7 @@
     
     if (!marker)
     {
-        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7.0, 7.0f
-                                                          )];
+        marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 7.0, 7.0f)];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
     }
@@ -124,6 +150,13 @@
     return marker;
 }
 
+#pragma mark -  Displaying Markers
+
+/** ---
+ *  @name Displaying Markers
+ *  ---
+ */
+
 /**
  *  Displays a marker on the given coordinate.
  */
@@ -133,7 +166,7 @@
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
     
     UIView *marker = [self marker];
-    marker.frame = CGRectMake(0, 0, self.indicatorRadius, self.indicatorRadius);
+    marker.frame = CGRectMake(0, 0, self.markerRadius, self.markerRadius);
     
     
     [marker setAlpha:0.0f];
@@ -158,18 +191,28 @@
     [self markCoordinate:self.lastCoordinate];
 }
 
-/**
- *  Set the indicator color.
- *  Setting to nil will default to red.
+#pragma mark - Custom Setters
+
+/** ---
+ *  @name Custom Setters
+ *  ---
  */
 
-- (void)setIndicatorColor:(UIColor *)indicatorColor
+/**
+ *  Set the location marker's color.
+ *
+ *  @discussion Setting to nil will default to red.
+ *
+ *  @param indicatorColor The color to change the indicator to.
+ */
+
+- (void)setMarkerColor:(UIColor *)markerColor
 {
-    if (!indicatorColor)
+    if (!markerColor)
     {
-        indicatorColor = [UIColor redColor];
+        markerColor = [UIColor redColor];
     }
-    _indicatorColor = indicatorColor;
+    _markerColor = markerColor;
     
     [self refreshMarker];
 }
@@ -178,13 +221,13 @@
  *  Set the indicator radius. Setting to a negative will revert to default.
  */
 
-- (void)setIndicatorRadius:(CGFloat)indicatorRadius
+- (void)setMarkerRadius:(CGFloat)markerRadius
 {
-    if (indicatorRadius < 0)
+    if (markerRadius < 0)
     {
-        indicatorRadius = 30.0f;
+        markerRadius = 30.0f;
     }
-    _indicatorRadius = indicatorRadius;
+    _markerRadius = markerRadius;
     
     [self refreshMarker];
 }

@@ -38,17 +38,18 @@
 - (void)markCoordinate:(CLLocationCoordinate2D)coordinate;
 
 /**
+ *  The color of the location marker. 
+ *
+ *  @discussion The default is red. Setting to nil will default to red.
+ */
+
+@property (nonatomic, strong) UIColor *markerColor;
+
+/**
  *  The radius of the indicator. The default is 30.0f;
  *   Setting to a negative will revert to default.
  */
 
-@property (nonatomic, assign) CGFloat indicatorRadius;
-
-/**
- *  The color of the indicator. The default is red. 
- *  (Setting to nil will default to red.)
- */
-
-@property (nonatomic, strong) UIColor *indicatorColor;
+@property (nonatomic, assign) CGFloat markerRadius;
 
 @end
