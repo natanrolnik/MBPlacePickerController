@@ -7,20 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LVCMapView.h"
 
 @interface LVCLocationPickerController : UIViewController
-
-/**
- *  Asks the rootViewController of the keyWindow to display the location view controller.
- */
-
-- (void)display;
-
-/**
- *  Asks the rootViewController of the keyWindow to dismiss whatever it's showing.
- */
-
-- (void)dismiss;
 
 /**
  *  A flag to determine if the locations should be sorted by continent.
@@ -35,13 +24,23 @@
  */
 
 @property (nonatomic, assign) BOOL showUserLocation;
-
+           
 /**
- *  Set the diameter of the marker on the map.
- *
- *  @param markerSize The diameter to use.
+ *  Asks the rootViewController of the keyWindow to display the location view controller.
  */
 
-- (void)setMarkerSize:(CGFloat)markerSize;
+- (void)display;
+
+/**
+ *  Asks the rootViewController of the keyWindow to dismiss whatever it's showing.
+ */
+
+- (void)dismiss;
+
+/**
+ *  A view that renders the map.
+ */
+
+@property (nonatomic, strong, readonly) LVCMapView *map;
 
 @end

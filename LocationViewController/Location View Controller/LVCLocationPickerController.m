@@ -52,17 +52,12 @@ static NSIndexPath *previousIndexPath = nil;
  */
 
 @property (nonatomic, strong) NSDictionary *locationsByContinent;
+
 /**
  *  A table to display a list of locations.
  */
 
 @property (nonatomic, strong) UITableView *tableView;
-
-/**
- *  A view that renders the map.
- */
-
-@property (nonatomic, strong) LVCMapView *map;
 
 @end
 
@@ -337,7 +332,7 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSString *title = @"A-Z";
+    NSString *title = @"Unsorted";
     
     if (self.sortByContinent == YES)
     {
@@ -604,25 +599,6 @@ static NSIndexPath *previousIndexPath = nil;
 - (void)setMarkerSize:(CGFloat)markerSize
 {
     [self.map setMarkerDiameter:markerSize];
-}
-
-/**
- *  A flag to determine if the user's location should be displayed.
- *  Default is NO.
- */
-
-- (BOOL)showUserLocation
-{
-    return self.map.showUserLocation;
-}
-
-/**
- *  @param showUserLocation A parameter controlling wether to show the user's location.
- */
-
-- (void)setShowUserLocation:(BOOL)showUserLocation
-{
-    [self.map setShowUserLocation:showUserLocation];
 }
 
 @end
