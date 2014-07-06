@@ -311,6 +311,8 @@ static NSIndexPath *previousIndexPath = nil;
 
 /**
  *  Stops the automatic updates.
+ *
+ *  Called whenever the user chooses a location from the list.
  */
 
 - (void)disableAutomaticUpdates

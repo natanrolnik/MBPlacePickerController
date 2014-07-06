@@ -73,9 +73,26 @@
 
 - (void)refreshLocationsFromServer;
 
-/**
- *
- *
+/** ---
+ *  @name Automatic Location Updates
+ *  ---
  */
+
+/**
+ *  This method automatically updates the
+ *  location and calls the delegate when
+ *  there are changes to report.
+ */
+
+- (void)enableAutomaticUpdates;
+
+
+/**
+ *  Stops the automatic updates.
+ *
+ *  Called whenever the user chooses a location from the list.
+ */
+
+- (void)disableAutomaticUpdates;
 
 @end
