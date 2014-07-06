@@ -53,9 +53,20 @@ To get a location when the user picks one, or to get a location when automatic u
 
 This method will fire whenever the user taps a place, or when Core Location passes a location back to the picker.
 
+Extras
+===
+These are some nicities that exist for your fun and pleasure.
+
 Automatic Location Updates
 ---
 To get automatic location updates, call `enableAutomaticUpdates` on your picker. Note that in the event that a user selects a location, `disableAutomaticUpdates` will be called, and you'll have to re-enable automatic updates if you want them. You can call `disableAutomaticUpdates` by yourself if you'd like.
+
+	[picker enableAutomaticUpdates];	
+	
+The corollary of that is disabling the automatic updates:
+
+	[picker disableAutomaticUpdates];
+
 
 Customizing the Marker Color:
 ---
