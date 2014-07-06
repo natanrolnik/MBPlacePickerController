@@ -139,14 +139,19 @@ static NSIndexPath *previousIndexPath = nil;
     [self loadLocationsFromDisk];
     
     /**
-     *  Configure buttons.
+     *  A "Done" button.
      */
     
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = button;
     
-        UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(enableAutomaticUpdates)];
-        self.navigationItem.leftBarButtonItem = autolocateButton;
+    /**
+     *   A button for automatic location updates.
+     */
+    
+    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Automatic", @"A title for automatic location updates") style:UIBarButtonItemStyleBordered target:self action:@selector(enableAutomaticUpdates)];
+    
+    self.navigationItem.leftBarButtonItem = autolocateButton;
     
     /**
      *  Set a background color.
