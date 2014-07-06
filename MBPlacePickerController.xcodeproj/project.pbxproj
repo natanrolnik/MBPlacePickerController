@@ -28,6 +28,8 @@
 		46D705901968EF4B008113A8 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058A1968EF4B008113A8 /* equi-map.png */; };
 		46D705911968EF4B008113A8 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058B1968EF4B008113A8 /* equi-map@2x.png */; };
 		46D705921968EF4B008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058C1968EF4B008113A8 /* locations.json */; };
+		46D705961968FBE5008113A8 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D705941968FBE4008113A8 /* iTunesArtwork.png */; };
+		46D705971968FBE5008113A8 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D705951968FBE5008113A8 /* iTunesArtwork@2x.png */; };
 		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
 		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
 /* End PBXBuildFile section */
@@ -94,6 +96,8 @@
 		46D7058B1968EF4B008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
 		46D7058C1968EF4B008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBPlacePickerDelegate.h; path = "MBPlacePickerController/MBPlacePickerController/Place Picker Delegate/MBPlacePickerDelegate.h"; sourceTree = SOURCE_ROOT; };
+		46D705941968FBE4008113A8 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = "MBPlacePickerController/Images/App Icon [Rounded]/iTunesArtwork.png"; sourceTree = "<group>"; };
+		46D705951968FBE5008113A8 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "MBPlacePickerController/Images/App Icon [Rounded]/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
 		46D7E57B19670A13000EA7C3 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
 		46D7E57C19670A13000EA7C3 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		468E0FE51958656A00BA2C56 = {
 			isa = PBXGroup;
 			children = (
+				46D705941968FBE4008113A8 /* iTunesArtwork.png */,
+				46D705951968FBE5008113A8 /* iTunesArtwork@2x.png */,
 				468E0FF71958656A00BA2C56 /* MBPlacePickerController */,
 				468E10191958656A00BA2C56 /* MBPlacePickerControllerTests */,
 				468E0FF01958656A00BA2C56 /* Frameworks */,
@@ -226,6 +232,7 @@
 		46D7057F1968EF4B008113A8 /* MBPlacePickerController */ = {
 			isa = PBXGroup;
 			children = (
+				46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */,
 				46D705801968EF4B008113A8 /* Location Manager */,
 				46D705831968EF4B008113A8 /* Location View Controller */,
 				46D705861968EF4B008113A8 /* MapView */,
@@ -248,7 +255,6 @@
 			children = (
 				46D705841968EF4B008113A8 /* MBPlacePickerController.h */,
 				46D705851968EF4B008113A8 /* MBPlacePickerController.m */,
-				46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */,
 			);
 			path = "Location View Controller";
 			sourceTree = "<group>";
@@ -406,6 +412,8 @@
 				468E100D1958656A00BA2C56 /* Images.xcassets in Resources */,
 				468E10051958656A00BA2C56 /* Main.storyboard in Resources */,
 				46D705901968EF4B008113A8 /* equi-map.png in Resources */,
+				46D705971968FBE5008113A8 /* iTunesArtwork@2x.png in Resources */,
+				46D705961968FBE5008113A8 /* iTunesArtwork.png in Resources */,
 				46D705911968EF4B008113A8 /* equi-map@2x.png in Resources */,
 				46D705921968EF4B008113A8 /* locations.json in Resources */,
 				468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */,
