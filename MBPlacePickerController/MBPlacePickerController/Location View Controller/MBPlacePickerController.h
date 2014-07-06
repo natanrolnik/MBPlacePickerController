@@ -1,6 +1,6 @@
 //
-//  LVCLocationViewController.h
-//  LocationViewController
+//  MBPlacePickerController.h
+//  MBPlacePickerController
 //
 //  Created by Moshe on 6/23/14.
 //  Copyright (c) 2014 Corlear Apps. All rights reserved.
