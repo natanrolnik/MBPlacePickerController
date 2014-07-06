@@ -145,7 +145,7 @@ static NSIndexPath *previousIndexPath = nil;
      *  Set a background color.
      */
     
-    self.view.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithRed:0.05 green:0.01 blue:0.20 alpha:1.00];
     
     /**
      *  Register a table view cell class.
