@@ -38,6 +38,12 @@
 
 @property (nonatomic, assign) id<MBPlacePickerDelegate> delegate;
 
+/**
+ *  The working location.
+ */
+
+@property (nonatomic, strong) CLLocation *location;
+
 #pragma mark - Presenting and Dismissing the Picker
 
 /** ---

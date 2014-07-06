@@ -29,12 +29,6 @@ static NSIndexPath *previousIndexPath = nil;
 @interface MBPlacePickerController () <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 /**
- *  The working location.
- */
-
-@property (nonatomic, strong) CLLocation *location;
-
-/**
  *  An array of location dictionaries.
  */
 
@@ -52,6 +46,12 @@ static NSIndexPath *previousIndexPath = nil;
 
 @property (nonatomic, strong) UITableView *tableView;
 
+/**
+ *  A flag to determine if we're using the user's location or not.
+ */
+
+@property (nonatomic, assign) BOOL automaticUpdates;
+
 @end
 
 @implementation MBPlacePickerController
@@ -66,6 +66,7 @@ static NSIndexPath *previousIndexPath = nil;
         _map = [[MBMapView alloc] init];
         _sortByContinent = YES;
         _serverURL = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
+        _automaticUpdates = NO;
     }
     
     return self;
@@ -138,8 +139,8 @@ static NSIndexPath *previousIndexPath = nil;
     UIBarButtonItem *button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismiss)];
     self.navigationItem.rightBarButtonItem = button;
     
-    //    UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refreshLocation)];
-    //    self.navigationItem.leftBarButtonItem = autolocateButton;
+        UIBarButtonItem *autolocateButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(enableAutomaticUpdates)];
+        self.navigationItem.leftBarButtonItem = autolocateButton;
     
     /**
      *  Set a background color.
@@ -170,7 +171,10 @@ static NSIndexPath *previousIndexPath = nil;
     previousIndexPath = nil;
     [self refreshLocationsFromServer];
     
-    [self.map markCoordinate:self.location.coordinate];
+    if(!self.automaticUpdates)
+    {
+        [self.map markCoordinate:self.location.coordinate];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -233,14 +237,55 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)enableAutomaticUpdates
 {
+    /**
+     *  Set the flag.
+     */
+    self.automaticUpdates = YES;
+    
+    /**
+     *  Hide the red map marker.
+     */
     [self.map hideMarker];
-    [self.map setShowUserLocation:YES];
+    
+    /**
+     *  Trigger automatic location updates.
+     */
     
     [[MBLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
+        
+        /**
+         *  On each update, pull the location.
+         */
+        
         CLLocation *lastLocation = [[MBLocationManager sharedManager] location];
         
+        /**
+         *  If there's a location...
+         */
         if (lastLocation)
         {
+            /**
+             *  ...assign the location...
+             */
+            self.location = lastLocation;
+            
+            /**
+             *  Reload the table so we don't have an extra checkmark.
+             */
+            
+            if (previousIndexPath != nil)
+            {
+                [[self tableView] reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+            
+            /**
+             *  ...display it...
+             */
+            [self.map setShowUserLocation:YES];
+            
+            /**
+             *  ...and attempt to call the delegate.
+             */
             if ([self.delegate respondsToSelector:@selector(placePickerController:didChangeToPlace:)])
             {
                 [[self delegate] placePickerController:self didChangeToPlace:lastLocation];
@@ -255,6 +300,7 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)disableAutomaticUpdates
 {
+    self.automaticUpdates = NO;
     [[MBLocationManager sharedManager] stopUpdatingLocation];
 }
 
@@ -661,6 +707,18 @@ static NSIndexPath *previousIndexPath = nil;
     }
     
     [[self tableView] reloadData];
+}
+
+/**
+ *  Sets the current location and update the map.
+ *  Setting this property does not call the delegate.
+ *
+ *  @param location The location to display.
+ */
+
+- (void)setLocation:(CLLocation *)location
+{
+    
 }
 
 @end
