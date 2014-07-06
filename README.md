@@ -39,7 +39,7 @@ To show a place picker, you need to follow three easy steps:
 	
 That's it!
 
-Getting A Location
+Picking A Place
 ---
 
 To get a location when the user picks one, or to get a location when automatic updates come back, assign a delegate to the place picker. You'll need to implement one delegate method to catch those location updates. Assume the picker from "Showing a Picker," your code should look like the following:
@@ -52,6 +52,30 @@ To get a location when the user picks one, or to get a location when automatic u
 	}
 
 This method will fire whenever the user taps a place, or when Core Location passes a location back to the picker.
+
+About the Places and Sorting Them:
+===
+
+The list of places is something I compiled a while back. If you want to change it, you have two options. In either case, you're going to want to follow the following convention:
+
+ 	"name" : "Boston, Massachusetts, USA",	// City name
+	"longitude" : -71.0597732,	//	Longitude
+  	"latitude" : 42.3584308,	//	Latitude
+  	"continent" : "North America"	//	Continent
+
+If you don't provide a properly capitalized continent, the continent sorting will break. Valid continents are technically any string, but you should use these:
+
+	"North America"
+	"Central America"
+	"South America"
+	"Africa"
+	"Asia"
+	"Europe"
+	"Antarctica"
+
+1. You can edit the list of locations directly. Inside the `Resources` folder, there's a file named `locations.json`. 
+
+2. You can keep the list fresh by keeping the latest version on your server. Set a string value to the `serverURL` property on the picker to tell it where to look. It will update whenever its `viewDidAppear` method is called. 
 
 Extras
 ===
