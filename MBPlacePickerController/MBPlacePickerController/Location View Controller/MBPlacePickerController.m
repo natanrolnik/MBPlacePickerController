@@ -718,7 +718,13 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)setLocation:(CLLocation *)location
 {
+    _location = location;
     
+    if (location)
+    {
+        [self disableAutomaticUpdates];
+        [self.map markCoordinate:location.coordinate];
+    }
 }
 
 @end
