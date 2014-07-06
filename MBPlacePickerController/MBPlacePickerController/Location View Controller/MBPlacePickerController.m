@@ -154,6 +154,12 @@ static NSIndexPath *previousIndexPath = nil;
     self.navigationItem.leftBarButtonItem = autolocateButton;
     
     /**
+     *  Set a title.
+     */
+    
+    self.title = NSLocalizedString(@"Place Picker", @"A title for the place picker.");
+    
+    /**
      *  Set a background color.
      */
     
