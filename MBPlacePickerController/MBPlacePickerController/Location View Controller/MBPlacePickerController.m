@@ -449,12 +449,12 @@ static NSIndexPath *previousIndexPath = nil;
                 
                 if (error && ! locations)
                 {
-                    NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
+                    NSLog(@"MBPlacePicker (CRLCoreLib): Failed to unwrap fresh location list.");
                 }
                 else if (locations)
                 {
                     if (!locations.count) {
-                        NSLog(@"LocationViewController (CRLCoreLib): Recieved an empty list of locations.");
+                        NSLog(@"MBPlacePicker (CRLCoreLib): Recieved an empty list of locations.");
                     }
                     else
                     {
@@ -468,7 +468,7 @@ static NSIndexPath *previousIndexPath = nil;
                 }
             }
             else{
-                NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
+                NSLog(@"MBPlacePicker (CRLCoreLib): Failed to download fresh location list.");
             }
         }];
     }
