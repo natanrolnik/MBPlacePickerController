@@ -293,7 +293,7 @@
 #pragma mark - Update User Location
 
 /**
- *
+ *  Updates the user's location and shows the marker when the location manager returns fresh data.
  */
 
 - (void)_updateUserLocation
@@ -301,7 +301,6 @@
     
     [[MBLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
 
-            
             CLLocation *location = [[MBLocationManager sharedManager] location];
             
             if (location) {
