@@ -16,7 +16,7 @@ You'll need to find the `MBPlacePickerController` subfolder in the repository an
 
 Dependencies
 ---
-`MBPlacePicker` was built in Objective-C with the iOS 7 SDK, ARC, and Core Location. 
+`MBPlacePickerController` was built in Objective-C with the iOS 7 SDK, ARC, and Core Location. 
 
 **Note:** There's also a copy of another library I'm working on, called `CRLCoreLib`, but that's a standalone and included for your use. Don't worry about that. I'm noting it here because that library may ship seperately in the future. 
 
