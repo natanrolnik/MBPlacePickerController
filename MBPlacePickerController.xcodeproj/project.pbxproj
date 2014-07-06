@@ -22,12 +22,12 @@
 		468E10161958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
 		468E101E1958656A00BA2C56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 468E101C1958656A00BA2C56 /* InfoPlist.strings */; };
 		468E10201958656A00BA2C56 /* MBPlacePickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E101F1958656A00BA2C56 /* MBPlacePickerControllerTests.m */; };
-		46D70574196766F0008113A8 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D70569196766F0008113A8 /* MBLocationManager.m */; };
-		46D70575196766F0008113A8 /* MBPlacePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7056C196766F0008113A8 /* MBPlacePickerController.m */; };
-		46D70576196766F0008113A8 /* MBMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7056F196766F0008113A8 /* MBMapView.m */; };
-		46D70577196766F0008113A8 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D70571196766F0008113A8 /* equi-map.png */; };
-		46D70578196766F0008113A8 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D70572196766F0008113A8 /* equi-map@2x.png */; };
-		46D70579196766F0008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D70573196766F0008113A8 /* locations.json */; };
+		46D7058D1968EF4B008113A8 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705821968EF4B008113A8 /* MBLocationManager.m */; };
+		46D7058E1968EF4B008113A8 /* MBPlacePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705851968EF4B008113A8 /* MBPlacePickerController.m */; };
+		46D7058F1968EF4B008113A8 /* MBMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705881968EF4B008113A8 /* MBMapView.m */; };
+		46D705901968EF4B008113A8 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058A1968EF4B008113A8 /* equi-map.png */; };
+		46D705911968EF4B008113A8 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058B1968EF4B008113A8 /* equi-map@2x.png */; };
+		46D705921968EF4B008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058C1968EF4B008113A8 /* locations.json */; };
 		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
 		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,7 @@
 			containerPortal = 468E0FE61958656A00BA2C56 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 468E0FED1958656A00BA2C56;
-			remoteInfo = LocationViewController;
+			remoteInfo = MBPlacePickerController;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -84,15 +84,15 @@
 		468E101B1958656A00BA2C56 /* MBPlacePickerControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MBPlacePickerControllerTests-Info.plist"; sourceTree = "<group>"; };
 		468E101D1958656A00BA2C56 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		468E101F1958656A00BA2C56 /* MBPlacePickerControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBPlacePickerControllerTests.m; sourceTree = "<group>"; };
-		46D70568196766F0008113A8 /* MBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocationManager.h; sourceTree = "<group>"; };
-		46D70569196766F0008113A8 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
-		46D7056B196766F0008113A8 /* MBPlacePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacePickerController.h; sourceTree = "<group>"; };
-		46D7056C196766F0008113A8 /* MBPlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPlacePickerController.m; sourceTree = "<group>"; };
-		46D7056E196766F0008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapView.h; sourceTree = "<group>"; };
-		46D7056F196766F0008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMapView.m; sourceTree = "<group>"; };
-		46D70571196766F0008113A8 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map.png"; sourceTree = "<group>"; };
-		46D70572196766F0008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
-		46D70573196766F0008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
+		46D705811968EF4B008113A8 /* MBLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBLocationManager.h; sourceTree = "<group>"; };
+		46D705821968EF4B008113A8 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
+		46D705841968EF4B008113A8 /* MBPlacePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacePickerController.h; sourceTree = "<group>"; };
+		46D705851968EF4B008113A8 /* MBPlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPlacePickerController.m; sourceTree = "<group>"; };
+		46D705871968EF4B008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapView.h; sourceTree = "<group>"; };
+		46D705881968EF4B008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMapView.m; sourceTree = "<group>"; };
+		46D7058A1968EF4B008113A8 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map.png"; sourceTree = "<group>"; };
+		46D7058B1968EF4B008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
+		46D7058C1968EF4B008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
 		46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
 		46D7E57B19670A13000EA7C3 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
 		46D7E57C19670A13000EA7C3 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */,
 			);
 			name = CoreLib;
-			path = LocationViewController/CoreLib;
+			path = MBPlacePickerController/CoreLib;
 			sourceTree = "<group>";
 		};
 		464BBF041961A1D100321590 /* Products */ = {
@@ -181,17 +181,16 @@
 		468E0FF71958656A00BA2C56 /* MBPlacePickerController */ = {
 			isa = PBXGroup;
 			children = (
-				46D70566196766F0008113A8 /* MBPlacePickerController */,
 				468E10001958656A00BA2C56 /* MBAppDelegate.h */,
 				468E10011958656A00BA2C56 /* MBAppDelegate.m */,
+				46D7057F1968EF4B008113A8 /* MBPlacePickerController */,
 				468E10031958656A00BA2C56 /* Main.storyboard */,
 				468E10091958656A00BA2C56 /* MBViewController.h */,
 				468E100A1958656A00BA2C56 /* MBViewController.m */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
-			name = MBPlacePickerController;
-			path = LocationViewController;
+			path = MBPlacePickerController;
 			sourceTree = "<group>";
 		};
 		468E0FF81958656A00BA2C56 /* Supporting Files */ = {
@@ -211,8 +210,7 @@
 				468E101F1958656A00BA2C56 /* MBPlacePickerControllerTests.m */,
 				468E101A1958656A00BA2C56 /* Supporting Files */,
 			);
-			name = MBPlacePickerControllerTests;
-			path = LocationViewControllerTests;
+			path = MBPlacePickerControllerTests;
 			sourceTree = "<group>";
 		};
 		468E101A1958656A00BA2C56 /* Supporting Files */ = {
@@ -224,50 +222,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		46D70566196766F0008113A8 /* MBPlacePickerController */ = {
+		46D7057F1968EF4B008113A8 /* MBPlacePickerController */ = {
 			isa = PBXGroup;
 			children = (
-				46D70567196766F0008113A8 /* Location Manager */,
-				46D7056A196766F0008113A8 /* Location View Controller */,
-				46D7056D196766F0008113A8 /* MapView */,
-				46D70570196766F0008113A8 /* Resources */,
+				46D705801968EF4B008113A8 /* Location Manager */,
+				46D705831968EF4B008113A8 /* Location View Controller */,
+				46D705861968EF4B008113A8 /* MapView */,
+				46D705891968EF4B008113A8 /* Resources */,
 			);
 			path = MBPlacePickerController;
 			sourceTree = "<group>";
 		};
-		46D70567196766F0008113A8 /* Location Manager */ = {
+		46D705801968EF4B008113A8 /* Location Manager */ = {
 			isa = PBXGroup;
 			children = (
-				46D70568196766F0008113A8 /* MBLocationManager.h */,
-				46D70569196766F0008113A8 /* MBLocationManager.m */,
+				46D705811968EF4B008113A8 /* MBLocationManager.h */,
+				46D705821968EF4B008113A8 /* MBLocationManager.m */,
 			);
 			path = "Location Manager";
 			sourceTree = "<group>";
 		};
-		46D7056A196766F0008113A8 /* Location View Controller */ = {
+		46D705831968EF4B008113A8 /* Location View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				46D7056B196766F0008113A8 /* MBPlacePickerController.h */,
-				46D7056C196766F0008113A8 /* MBPlacePickerController.m */,
+				46D705841968EF4B008113A8 /* MBPlacePickerController.h */,
+				46D705851968EF4B008113A8 /* MBPlacePickerController.m */,
 			);
 			path = "Location View Controller";
 			sourceTree = "<group>";
 		};
-		46D7056D196766F0008113A8 /* MapView */ = {
+		46D705861968EF4B008113A8 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				46D7056E196766F0008113A8 /* MBMapView.h */,
-				46D7056F196766F0008113A8 /* MBMapView.m */,
+				46D705871968EF4B008113A8 /* MBMapView.h */,
+				46D705881968EF4B008113A8 /* MBMapView.m */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
 		};
-		46D70570196766F0008113A8 /* Resources */ = {
+		46D705891968EF4B008113A8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				46D70571196766F0008113A8 /* equi-map.png */,
-				46D70572196766F0008113A8 /* equi-map@2x.png */,
-				46D70573196766F0008113A8 /* locations.json */,
+				46D7058A1968EF4B008113A8 /* equi-map.png */,
+				46D7058B1968EF4B008113A8 /* equi-map@2x.png */,
+				46D7058C1968EF4B008113A8 /* locations.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -280,7 +278,7 @@
 				46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */,
 			);
 			name = "CoreLib Headers";
-			path = LocationViewController/CoreLib;
+			path = MBPlacePickerController/CoreLib;
 			sourceTree = "<group>";
 		};
 		46D7E57819670A13000EA7C3 /* include */ = {
@@ -319,7 +317,7 @@
 				464BBF0E1961A1FB00321590 /* PBXTargetDependency */,
 			);
 			name = MBPlacePickerController;
-			productName = LocationViewController;
+			productName = MBPlacePickerController;
 			productReference = 468E0FEE1958656A00BA2C56 /* MBPlacePickerController.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -337,7 +335,7 @@
 				468E10181958656A00BA2C56 /* PBXTargetDependency */,
 			);
 			name = MBPlacePickerControllerTests;
-			productName = LocationViewControllerTests;
+			productName = MBPlacePickerControllerTests;
 			productReference = 468E10121958656A00BA2C56 /* MBPlacePickerControllerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
@@ -405,9 +403,9 @@
 			files = (
 				468E100D1958656A00BA2C56 /* Images.xcassets in Resources */,
 				468E10051958656A00BA2C56 /* Main.storyboard in Resources */,
-				46D70577196766F0008113A8 /* equi-map.png in Resources */,
-				46D70578196766F0008113A8 /* equi-map@2x.png in Resources */,
-				46D70579196766F0008113A8 /* locations.json in Resources */,
+				46D705901968EF4B008113A8 /* equi-map.png in Resources */,
+				46D705911968EF4B008113A8 /* equi-map@2x.png in Resources */,
+				46D705921968EF4B008113A8 /* locations.json in Resources */,
 				468E0FFC1958656A00BA2C56 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,12 +425,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46D70574196766F0008113A8 /* MBLocationManager.m in Sources */,
 				468E100B1958656A00BA2C56 /* MBViewController.m in Sources */,
-				46D70575196766F0008113A8 /* MBPlacePickerController.m in Sources */,
+				46D7058D1968EF4B008113A8 /* MBLocationManager.m in Sources */,
 				468E10021958656A00BA2C56 /* MBAppDelegate.m in Sources */,
+				46D7058E1968EF4B008113A8 /* MBPlacePickerController.m in Sources */,
+				46D7058F1968EF4B008113A8 /* MBMapView.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
-				46D70576196766F0008113A8 /* MBMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,11 +563,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationViewController/MBPlacePickerController-Prefix.pch";
-				INFOPLIST_FILE = "LocationViewController/MBPlacePickerController-Info.plist";
+				GCC_PREFIX_HEADER = "MBPlacePickerController/MBPlacePickerController-Prefix.pch";
+				INFOPLIST_FILE = "MBPlacePickerController/MBPlacePickerController-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LocationViewController/CoreLib",
+					"$(PROJECT_DIR)/MBPlacePickerController/CoreLib",
 				);
 				PRODUCT_NAME = MBPlacePickerController;
 				WRAPPER_EXTENSION = app;
@@ -582,11 +580,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationViewController/MBPlacePickerController-Prefix.pch";
-				INFOPLIST_FILE = "LocationViewController/MBPlacePickerController-Info.plist";
+				GCC_PREFIX_HEADER = "MBPlacePickerController/MBPlacePickerController-Prefix.pch";
+				INFOPLIST_FILE = "MBPlacePickerController/MBPlacePickerController-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/LocationViewController/CoreLib",
+					"$(PROJECT_DIR)/MBPlacePickerController/CoreLib",
 				);
 				PRODUCT_NAME = MBPlacePickerController;
 				WRAPPER_EXTENSION = app;
@@ -596,19 +594,19 @@
 		468E10271958656A00BA2C56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LocationViewController.app/LocationViewController";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBPlacePickerController.app/MBPlacePickerController";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationViewController/LocationViewController-Prefix.pch";
+				GCC_PREFIX_HEADER = "MBPlacePickerController/MBPlacePickerController-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "LocationViewControllerTests/MBPlacePickerControllerTests-Info.plist";
+				INFOPLIST_FILE = "MBPlacePickerControllerTests/MBPlacePickerControllerTests-Info.plist";
 				PRODUCT_NAME = MBPlacePickerControllerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -618,15 +616,15 @@
 		468E10281958656A00BA2C56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/LocationViewController.app/LocationViewController";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MBPlacePickerController.app/MBPlacePickerController";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "LocationViewController/LocationViewController-Prefix.pch";
-				INFOPLIST_FILE = "LocationViewControllerTests/MBPlacePickerControllerTests-Info.plist";
+				GCC_PREFIX_HEADER = "MBPlacePickerController/MBPlacePickerController-Prefix.pch";
+				INFOPLIST_FILE = "MBPlacePickerControllerTests/MBPlacePickerControllerTests-Info.plist";
 				PRODUCT_NAME = MBPlacePickerControllerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
