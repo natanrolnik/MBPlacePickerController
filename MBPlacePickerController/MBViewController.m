@@ -9,7 +9,7 @@
 #import "MBViewController.h"
 #import "MBPlacePickerController.h"
 
-@interface MBViewController ()
+@interface MBViewController () <MBPlacePickerDelegate>
 
 /**
  *  The location picker.
@@ -28,6 +28,18 @@
 
 @property (weak, nonatomic) IBOutlet UISwitch *showUserLocationSwitch;
 
+/**
+ *  A label to show the latest latitude.
+ */
+
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+
+/**
+ *  A label to show the latest longitude.
+ */
+
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+
 @end
 
 @implementation MBViewController
@@ -45,6 +57,7 @@
      */
     
     self.locationPickerController = [[MBPlacePickerController alloc] init];
+    self.locationPickerController.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -108,6 +121,17 @@
         [self.locationPickerController.map setMarkerDiameter:s.value];
     }
 
+}
+
+#pragma mark - MBPlacePickerController
+
+- (void)placePickerController:(MBPlacePickerController *)placePicker didChangeToPlace:(CLLocation *)place
+{
+    CGFloat lat = place.coordinate.latitude;
+    CGFloat lon = place.coordinate.longitude;
+    
+    self.latitudeLabel.text = [NSString stringWithFormat:@"Latitude: %f", lat];
+    self.longitudeLabel.text = [NSString stringWithFormat:@"Longitude: %f", lon];
 }
 
 @end
