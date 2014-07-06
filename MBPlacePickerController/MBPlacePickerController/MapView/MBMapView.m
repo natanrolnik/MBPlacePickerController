@@ -135,22 +135,13 @@
     
     if (!marker)
     {
-        /**
-         *  An outer ring
-         */
-        
         marker = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.markerDiameter, self.markerDiameter)];
         marker.layer.borderWidth = 1.0f;
         marker.layer.cornerRadius = CGRectGetHeight(marker.bounds)/2.0f;
-        
-        /**
-         *  An innermost ring
-         */
     }
     
     marker.layer.borderColor = [self.markerColor CGColor];
     marker.backgroundColor = [self.markerColor colorWithAlphaComponent:0.7];
-    
     
     return marker;
 }
@@ -253,18 +244,21 @@
 
 - (void)hideMarker
 {
-    UIView *marker = [self marker];
-    if ([self.subviews containsObject:marker])
+    if ([self.subviews containsObject:[self marker]])
     {
-        [UIView animateWithDuration:0.3 animations:^{
-            
-            CGRect markerRect = marker.frame;
-            markerRect.size = CGSizeMake(0.0, 0.0);
-            marker.frame = markerRect;
-            marker.frame = markerRect;
-        } completion:^(BOOL finished) {
-            [marker removeFromSuperview];
-        }];
+        UIView *marker = [self marker];
+        if ([self.subviews containsObject:marker])
+        {
+            [UIView animateWithDuration:0.3 animations:^{
+                
+                CGRect markerRect = marker.frame;
+                markerRect.size = CGSizeMake(0.0, 0.0);
+                marker.frame = markerRect;
+                marker.frame = markerRect;
+            } completion:^(BOOL finished) {
+                [marker removeFromSuperview];
+            }];
+        }
     }
 }
 
