@@ -59,7 +59,7 @@
 - (void)removeFromSuperview
 {
     [[self marker] removeFromSuperview];
-
+    
     [super removeFromSuperview];
 }
 
@@ -151,7 +151,7 @@
     marker.layer.borderColor = [self.markerColor CGColor];
     marker.backgroundColor = [self.markerColor colorWithAlphaComponent:0.7];
     
-
+    
     return marker;
 }
 
@@ -192,7 +192,7 @@
     CGPoint center = [self pointFromLatitude:coordinate.latitude andLongitude:coordinate.longitude];
     
     UIView *marker = [self marker];
-
+    
     marker.layer.cornerRadius = self.markerDiameter/2.0f;
     
     if (![self.subviews containsObject:[self marker]])
@@ -201,6 +201,8 @@
         
         [marker setAlpha:0.0f];
         [marker setCenter:center];
+        
+        [self addSubview:marker];
     }
     else
     {
@@ -209,14 +211,27 @@
         marker.frame = markerRect;
     }
     
-    [self addSubview:marker];
-    [UIView animateWithDuration:0.25 animations:^{
-        CGRect markerRect = marker.frame;
-        markerRect.size = CGSizeMake(self.markerDiameter, self.markerDiameter);
-        marker.frame = markerRect;
-        [marker setCenter:center];
-        [marker setAlpha:1.0];
-    }];
+    [UIView animateWithDuration:0.1
+                     animations:^{
+                         CGRect markerRect = marker.frame;
+                         markerRect.size = CGSizeMake(self.markerDiameter * 1.1f, self.markerDiameter * 1.1f);
+                         marker.frame = markerRect;
+                         marker.layer.cornerRadius = self.markerDiameter/2.0f;
+                     }
+                     completion:^(BOOL finished) {
+                         [UIView animateWithDuration:0.20 animations:^{
+                             [marker setCenter:center];
+                             [marker setAlpha:1.0];
+                         }
+                                          completion:^(BOOL finished) {
+                                              CGRect markerRect = marker.frame;
+                                              markerRect.size = CGSizeMake(self.markerDiameter, self.markerDiameter);
+                                              marker.frame = markerRect;
+                                              marker.layer.cornerRadius = self.markerDiameter/2.0f;
+                                          }];
+                     }];
+    
+    
     
     self.lastCoordinate = coordinate;
 }
@@ -300,26 +315,26 @@
 {
     
     [[MBLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
-
-            CLLocation *location = [[MBLocationManager sharedManager] location];
+        
+        CLLocation *location = [[MBLocationManager sharedManager] location];
+        
+        if (location) {
+            CGPoint userMarkerCenter = [self pointFromLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
+            [[self userMarker] setCenter:userMarkerCenter];
+            [self addSubview:[self userMarker]];
             
-            if (location) {
-                CGPoint userMarkerCenter = [self pointFromLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
-                [[self userMarker] setCenter:userMarkerCenter];
-                [self addSubview:[self userMarker]];
-                
-                /**
-                 *  Keep the selected marker above the location marker.
-                 */
-                
-                if ([self.subviews containsObject:[self marker]])
-                {
-                    [self bringSubviewToFront:[self marker]];
-                }
+            /**
+             *  Keep the selected marker above the location marker.
+             */
+            
+            if ([self.subviews containsObject:[self marker]])
+            {
+                [self bringSubviewToFront:[self marker]];
             }
-            
-
+        }
+        
+        
     }];
-
+    
 }
 @end
