@@ -107,7 +107,6 @@ static NSIndexPath *previousIndexPath = nil;
     self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     [self.view addSubview:self.tableView];
-    
 }
 
 #pragma mark - View Lifecycle
@@ -219,7 +218,47 @@ static NSIndexPath *previousIndexPath = nil;
     }
 }
 
-#pragma mark - UITableView
+#pragma mark - Automatic Location Updates
+
+/** ---
+ *  @name Automatic Location Updates
+ *  ---
+ */
+
+/**
+ *  This method automatically updates the
+ *  location and calls the delegate when
+ *  there are changes to report.
+ */
+
+- (void)enableAutomaticUpdates
+{
+    [self.map hideMarker];
+    [self.map setShowUserLocation:YES];
+    
+    [[MBLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
+        CLLocation *lastLocation = [[MBLocationManager sharedManager] location];
+        
+        if (lastLocation)
+        {
+            if ([self.delegate respondsToSelector:@selector(placePickerController:didChangeToPlace:)])
+            {
+                [[self delegate] placePickerController:self didChangeToPlace:lastLocation];
+            }
+        }
+    }];
+}
+
+/**
+ *  Stops the automatic updates.
+ */
+
+- (void)disableAutomaticUpdates
+{
+    [[MBLocationManager sharedManager] stopUpdatingLocation];
+}
+
+#pragma mark - UITableViewDataSource
 
 /** ---
  *  @name UITableView Data Source
@@ -355,8 +394,22 @@ static NSIndexPath *previousIndexPath = nil;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    /**
+     *  Disable automatic updates.
+     */
+    
+    [self disableAutomaticUpdates];
+    
+    /**
+     *  Pull out a location from the list.
+     */
     
     NSDictionary *location = self.unsortedLocationList[indexPath.row];
+    
+    /**
+     *  If the locations are sorted by continent, 
+     *  pull out the appropriate one.
+     */
     
     if (self.sortByContinent)
     {
