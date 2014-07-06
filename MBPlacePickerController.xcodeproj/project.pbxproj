@@ -69,8 +69,8 @@
 		46D705821968EF4B008113A8 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
 		46D705841968EF4B008113A8 /* MBPlacePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacePickerController.h; sourceTree = "<group>"; };
 		46D705851968EF4B008113A8 /* MBPlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPlacePickerController.m; sourceTree = "<group>"; };
-		46D705871968EF4B008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapView.h; sourceTree = "<group>"; };
-		46D705881968EF4B008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMapView.m; sourceTree = "<group>"; };
+		46D705871968EF4B008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBMapView.h; path = "../Map View/MBMapView.h"; sourceTree = "<group>"; };
+		46D705881968EF4B008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBMapView.m; path = "../Map View/MBMapView.m"; sourceTree = "<group>"; };
 		46D7058A1968EF4B008113A8 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map.png"; sourceTree = "<group>"; };
 		46D7058B1968EF4B008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
 		46D7058C1968EF4B008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				46D705851968EF4B008113A8 /* MBPlacePickerController.m */,
 			);
 			name = MBPlacePickerController;
-			path = "Location View Controller";
+			path = "Place Picker Controller";
 			sourceTree = "<group>";
 		};
 		46D705861968EF4B008113A8 /* Map View */ = {
