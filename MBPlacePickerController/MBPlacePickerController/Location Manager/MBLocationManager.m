@@ -44,6 +44,13 @@
 
 @implementation MBLocationManager
 
+#pragma mark - Singleton Access
+
+/** ---
+ *  @name Singleton Access
+ *  ---
+ */
+
 /**
  *  Singleton access.
  */
@@ -59,6 +66,13 @@
     return manager;
 }
 
+#pragma mark - Initializer
+
+/** ---
+ *  @name Intializer
+ *  ---
+ */
+ 
 /**
  *  Designated initializer.
  */
@@ -74,6 +88,8 @@
     }
     return self;
 }
+
+#pragma mark - Core Location Manager Delegate
 
 /** ----
  *  @name Core Location Manager Delegate
@@ -96,6 +112,8 @@
         self.completion(self.locations, self.heading, self.status);
     }
 }
+
+#pragma mark - Getting Location/Heading
 
 /** ----
  *  @name Getting Location/Heading
