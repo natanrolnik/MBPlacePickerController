@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MBMapView.h"
+#import "MBPlacePickerDelegate.h"
 
 @interface MBPlacePickerController : UIViewController
 

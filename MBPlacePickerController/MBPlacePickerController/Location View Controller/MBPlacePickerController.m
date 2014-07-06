@@ -247,7 +247,7 @@ static NSIndexPath *previousIndexPath = nil;
         
         if (row < locationsForContinent.count)
         {
-           location = locationsForContinent[row];
+            location = locationsForContinent[row];
         }
     }
     
@@ -354,63 +354,61 @@ static NSIndexPath *previousIndexPath = nil;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (self.unsortedLocationList.count > indexPath.row)
+    
+    NSDictionary *location = self.unsortedLocationList[indexPath.row];
+    
+    if (self.sortByContinent)
     {
+        //  Gets the name of the continent.
+        NSString *continent = [self _sortedContinentNames][indexPath.section];
         
-        NSDictionary *location = self.unsortedLocationList[indexPath.row];
+        //  Gets all the locations in the continent
+        NSArray *locationsForContinent = [self locationsByContinent][continent];
         
-        if (self.sortByContinent)
-        {
-            //  Gets the name of the continent.
-            NSString *continent = [self _sortedContinentNames][indexPath.section];
-            
-            //  Gets all the locations in the continent
-            NSArray *locationsForContinent = [self locationsByContinent][continent];
-            
-            //  Gets a specific location from the continent.
-            NSInteger row = indexPath.row;
-            if (row < locationsForContinent.count) {
-                location = locationsForContinent[row];
-            }
+        //  Gets a specific location from the continent.
+        NSInteger row = indexPath.row;
+        if (row < locationsForContinent.count) {
+            location = locationsForContinent[row];
         }
-        
-        /**
-         *  Extract the location from the tapped location.
-         */
-        
-        CLLocationDegrees latitude = [location[@"latitude"] floatValue];
-        CLLocationDegrees longitude = [location[@"longitude"] floatValue];
-        
-        /**
-         *  Store it as a CLLocation in the location picker.
-         */
-        
-        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-        
-        self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
-        
-        /**
-         *  Update the map.
-         */
-        
-        [self.map markCoordinate:coordinate];
-        
-        /**
-         *
-         */
-        
-        if (previousIndexPath && ! [indexPath isEqual:previousIndexPath])
-        {
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath, previousIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-        else
-        {
-            [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-        }
-        
-        previousIndexPath = indexPath;
-        
     }
+    
+    /**
+     *  Extract the location from the tapped location.
+     */
+    
+    CLLocationDegrees latitude = [location[@"latitude"] floatValue];
+    CLLocationDegrees longitude = [location[@"longitude"] floatValue];
+    
+    /**
+     *  Store it as a CLLocation in the location picker.
+     */
+    
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    
+    self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    
+    /**
+     *  Update the map.
+     */
+    
+    [self.map markCoordinate:coordinate];
+    
+    /**
+     *
+     */
+    
+    if (previousIndexPath && ! [indexPath isEqual:previousIndexPath])
+    {
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath, previousIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    else
+    {
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+    
+    previousIndexPath = indexPath;
+    
+    
 }
 
 #pragma mark - Location List
@@ -470,7 +468,6 @@ static NSIndexPath *previousIndexPath = nil;
     NSString *locationsPath = [applicationString stringByAppendingString:@"/locations.json"];
     NSData *localData = [[NSData alloc] initWithContentsOfFile:locationsPath];
     
-    
     NSError *error = nil;
     
     if (!localData)
@@ -478,7 +475,7 @@ static NSIndexPath *previousIndexPath = nil;
         
         NSString *path = [[NSBundle mainBundle] pathForResource:@"locations" ofType:@"json"];
         NSData *data = [[NSData alloc] initWithContentsOfFile:path];
-
+        
         
         if (data) {
             NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
@@ -575,14 +572,17 @@ static NSIndexPath *previousIndexPath = nil;
 }
 
 /**
- *
+ *  @param sortByContinent A parameter to toggle the sort order of the locations.
  */
 
 - (void)setSortByContinent:(BOOL)sortByContinent
 {
     _sortByContinent = sortByContinent;
     
-    [self loadLocationsFromDisk];
+    if (sortByContinent)
+    {
+        [self _sortArrayOfLocationsByContinent];
+    }
     
     [[self tableView] reloadData];
 }
