@@ -84,12 +84,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)showLocationPickerController:(id)sender {
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.locationPickerController];
-    
-    if (navigationController) {
-        [self.locationPickerController display];
-    }
+- (IBAction)showLocationPickerController:(id)sender
+{
+    [self.locationPickerController display];
 }
 
 /**

@@ -52,6 +52,11 @@ static NSIndexPath *previousIndexPath = nil;
 
 @property (nonatomic, assign) BOOL automaticUpdates;
 
+/**
+ *  A navigation controller to present inside of.
+ */
+@property (nonatomic, strong) UINavigationController *navigationController;
+
 @end
 
 @implementation MBPlacePickerController
@@ -67,6 +72,7 @@ static NSIndexPath *previousIndexPath = nil;
         _sortByContinent = YES;
         _serverURL = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
         _automaticUpdates = NO;
+        _navigationController = [[UINavigationController alloc] initWithRootViewController:self];
     }
     
     return self;
@@ -196,14 +202,8 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)display
 {
-    if ([self.parentViewController isKindOfClass:[UINavigationController class]])
-    {
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self.parentViewController animated:YES completion:nil];
-    }
-    else
-    {
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self animated:YES completion:nil];
-    }
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
 }
 
 /**
@@ -212,14 +212,8 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)dismiss
 {
-    if ([[UIApplication sharedApplication].keyWindow.rootViewController.presentedViewController isEqual:self])
-    {
-        [[UIApplication sharedApplication].keyWindow.rootViewController dismissViewControllerAnimated:YES completion:nil];
-    }
-    else if (self.presentingViewController != nil)
-    {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-    }
+ [self.navigationController.presentingViewController dismissViewControllerAnimated:self.navigationController completion:^{
+ }];
 }
 
 #pragma mark - Automatic Location Updates
