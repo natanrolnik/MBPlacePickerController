@@ -384,8 +384,21 @@ static NSIndexPath *previousIndexPath = nil;
      */
     
     CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    CLLocation *place = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
     
-    self.location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    /**
+     *  Assign the location to the picker.
+     */
+    
+    self.location = place;
+    
+    /**
+     *  Call the delegate method with the place.
+     */
+    
+    if (self.delegate && [self.delegate respondsToSelector:@selector(placePickerController:didChangeToPlace:)]) {
+        [self.delegate placePickerController:self didChangeToPlace:place];
+    }
     
     /**
      *  Update the map.
@@ -394,7 +407,7 @@ static NSIndexPath *previousIndexPath = nil;
     [self.map markCoordinate:coordinate];
     
     /**
-     *
+     *  Update the list.
      */
     
     if (previousIndexPath && ! [indexPath isEqual:previousIndexPath])

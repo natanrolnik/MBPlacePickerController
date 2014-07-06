@@ -11,12 +11,14 @@
 
 @import CoreLocation;
 
+@class MBPlacePickerController;
+
 @protocol MBPlacePickerDelegate <NSObject>
 
 /**
- *  Called when the user selects a location or when the location manager updates the user location.
+ *  Called when the user selects a location or when the location manager updates.
  */
 
-- (void)placePickerController:(MBPlacePickerController *)placePicker didChoosePlace:(CLLocation *)place;
+- (void)placePickerController:(MBPlacePickerController *)placePicker didChangeToPlace:(CLLocation *)place;
 
 @end

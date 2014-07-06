@@ -32,6 +32,12 @@
 
 @property (nonatomic, strong, readonly) MBMapView *map;
 
+/**
+ *  A delegate to handle location changes.
+ */
+
+@property (nonatomic, assign) id<MBPlacePickerDelegate> delegate;
+
 #pragma mark - Presenting and Dismissing the Picker
 
 /** ---
