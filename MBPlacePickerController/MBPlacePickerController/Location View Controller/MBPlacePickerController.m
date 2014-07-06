@@ -168,7 +168,7 @@ static NSIndexPath *previousIndexPath = nil;
 {
     [super viewDidAppear:animated];
     previousIndexPath = nil;
-    [self updateLocationFromServer];
+    [self refreshLocationsFromServer];
     
     [self.map markCoordinate:self.location.coordinate];
 }
@@ -180,6 +180,7 @@ static NSIndexPath *previousIndexPath = nil;
 }
 
 #pragma mark - Presenting and Dismissing the Picker
+
 /** ---
  *  @name Presenting and Dismissing the Picker
  *  ---
@@ -323,7 +324,7 @@ static NSIndexPath *previousIndexPath = nil;
  *  @param tableView The table view.
  *  @param section A section.
  *
- *  @return The string "A-Z" if alphabetical, otherwise the name of a continent.
+ *  @return The string "Unsorted" if alphabetical, otherwise the name of a continent.
  */
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -418,7 +419,7 @@ static NSIndexPath *previousIndexPath = nil;
  *  Updates the location data from the server, then reloads the tableview.
  */
 
-- (void)updateLocationFromServer
+- (void)refreshLocationsFromServer
 {
     /**
      *  Download a updated location list.
@@ -584,17 +585,6 @@ static NSIndexPath *previousIndexPath = nil;
     [self loadLocationsFromDisk];
     
     [[self tableView] reloadData];
-}
-
-/**
- *  Set the diameter of the marker on the map.
- *
- *  @param markerSize The diameter to use.
- */
-
-- (void)setMarkerSize:(CGFloat)markerSize
-{
-    [self.map setMarkerDiameter:markerSize];
 }
 
 @end

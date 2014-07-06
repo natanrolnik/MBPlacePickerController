@@ -19,13 +19,6 @@
 @property (nonatomic, assign) BOOL sortByContinent;
 
 /**
- *  A flag to determine if the user's location should be displayed.
- *  Default is NO.
- */
-
-@property (nonatomic, assign) BOOL showUserLocation;
-
-/**
  *  A URL to use to update the location list.
  *  The default points to the GitHub repo.
  */
@@ -33,15 +26,17 @@
 @property (nonatomic, strong) NSString *serverURL;
 
 /**
- *
- */
-
-
-/**
  *  A view that renders the map.
  */
 
 @property (nonatomic, strong, readonly) MBMapView *map;
+
+#pragma mark - Presenting and Dismissing the Picker
+
+/** ---
+ *  @name Presenting and Dismissing the Picker
+ *  ---
+ */
 
 /**
  *  Asks the rootViewController of the keyWindow to display the location view controller.
@@ -55,6 +50,14 @@
 
 - (void)dismiss;
 
+/** ---
+ *  @name Update the location database
+ *  ---
+ */
+/**
+ *  Updates the location data from the server, then reloads the tableview.
+ */
 
+- (void)refreshLocationsFromServer;
 
 @end
