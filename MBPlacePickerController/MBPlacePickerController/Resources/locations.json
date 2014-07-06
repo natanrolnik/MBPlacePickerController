@@ -187,7 +187,7 @@
   },
   {
   "name" : "Milwaukee, Wisconsin, USA",
-  "longitude" : 87.906474,
+  "longitude" : -87.906474,
   "latitude" : 43.038903,
   "continent" : "North America"
   },
@@ -352,5 +352,11 @@
   "longitude" : 8.535325,
   "latitude" : 47.381791,
   "continent" : "Europe"
+  },
+  {
+    "name" : "Cape Town, South Africa",
+    "latitude" : -33.926,
+     "longitude" : 18.423,
+     "continent" : "Africa"
   }
   ]
