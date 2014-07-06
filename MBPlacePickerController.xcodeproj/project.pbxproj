@@ -193,8 +193,8 @@
 				46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */,
 				46D705981969030B008113A8 /* CRLCoreLib */,
 				46D705801968EF4B008113A8 /* Location Manager */,
-				46D705831968EF4B008113A8 /* Location View Controller */,
-				46D705861968EF4B008113A8 /* MapView */,
+				46D705831968EF4B008113A8 /* MBPlacePickerController */,
+				46D705861968EF4B008113A8 /* Map View */,
 				46D705891968EF4B008113A8 /* Resources */,
 			);
 			path = MBPlacePickerController;
@@ -209,21 +209,23 @@
 			path = "Location Manager";
 			sourceTree = "<group>";
 		};
-		46D705831968EF4B008113A8 /* Location View Controller */ = {
+		46D705831968EF4B008113A8 /* MBPlacePickerController */ = {
 			isa = PBXGroup;
 			children = (
 				46D705841968EF4B008113A8 /* MBPlacePickerController.h */,
 				46D705851968EF4B008113A8 /* MBPlacePickerController.m */,
 			);
+			name = MBPlacePickerController;
 			path = "Location View Controller";
 			sourceTree = "<group>";
 		};
-		46D705861968EF4B008113A8 /* MapView */ = {
+		46D705861968EF4B008113A8 /* Map View */ = {
 			isa = PBXGroup;
 			children = (
 				46D705871968EF4B008113A8 /* MBMapView.h */,
 				46D705881968EF4B008113A8 /* MBMapView.m */,
 			);
+			name = "Map View";
 			path = MapView;
 			sourceTree = "<group>";
 		};
