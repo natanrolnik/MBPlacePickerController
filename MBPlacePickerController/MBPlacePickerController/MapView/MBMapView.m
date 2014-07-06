@@ -245,6 +245,29 @@
     [self markCoordinate:self.lastCoordinate];
 }
 
+#pragma mark - Hiding the Marker
+
+/**
+ *  Shrinks the marker and then removes it from the map.
+ */
+
+- (void)hideMarker
+{
+    UIView *marker = [self marker];
+    if ([self.subviews containsObject:marker])
+    {
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            CGRect markerRect = marker.frame;
+            markerRect.size = CGSizeMake(0.0, 0.0);
+            marker.frame = markerRect;
+            marker.frame = markerRect;
+        } completion:^(BOOL finished) {
+            [marker removeFromSuperview];
+        }];
+    }
+}
+
 #pragma mark - Custom Setters
 
 /** ---

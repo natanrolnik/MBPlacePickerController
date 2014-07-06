@@ -13,12 +13,6 @@
 @interface MBMapView : UIImageView
 
 /**
- *  Displays a marker on the given coordinate.
- */
-
-- (void)markCoordinate:(CLLocationCoordinate2D)coordinate;
-
-/**
  *  The color of the location marker. 
  *
  *  @discussion The default is red. Setting to nil will default to red.
@@ -39,5 +33,22 @@
  */
 
 @property (nonatomic, assign) BOOL showUserLocation;
+
+/** ---
+ *  @name Displaying/Hiding the marker.
+ *  ---
+ */
+
+/**
+ *  Displays a marker on the given coordinate.
+ */
+
+- (void)markCoordinate:(CLLocationCoordinate2D)coordinate;
+
+/**
+ *  Shrinks the marker and then removes it from the map.
+ */
+
+- (void)hideMarker;
 
 @end
