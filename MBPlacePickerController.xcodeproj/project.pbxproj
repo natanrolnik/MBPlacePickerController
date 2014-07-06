@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 464BBF091961A1D100321590 /* libCRLCoreLib.a */; };
 		468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF11958656A00BA2C56 /* Foundation.framework */; };
 		468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF31958656A00BA2C56 /* CoreGraphics.framework */; };
 		468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 468E0FF51958656A00BA2C56 /* UIKit.framework */; };
@@ -30,32 +29,13 @@
 		46D705921968EF4B008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058C1968EF4B008113A8 /* locations.json */; };
 		46D705961968FBE5008113A8 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D705941968FBE4008113A8 /* iTunesArtwork.png */; };
 		46D705971968FBE5008113A8 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D705951968FBE5008113A8 /* iTunesArtwork@2x.png */; };
-		46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */; };
-		46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */; };
+		46D705A51969030B008113A8 /* CRLCoreLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7059B1969030B008113A8 /* CRLCoreLib.m */; };
+		46D705A61969030B008113A8 /* CRLDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7059E1969030B008113A8 /* CRLDataManager.m */; };
+		46D705A71969030B008113A8 /* CRLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705A11969030B008113A8 /* CRLFileManager.m */; };
+		46D705A81969030B008113A8 /* CRLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705A41969030B008113A8 /* CRLNetworkManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		464BBF081961A1D100321590 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 468E107C195B04FF00BA2C56;
-			remoteInfo = CRLCoreLib;
-		};
-		464BBF0A1961A1D100321590 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 468E108C195B04FF00BA2C56;
-			remoteInfo = CRLCoreLibTests;
-		};
-		464BBF0D1961A1FB00321590 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 468E107B195B04FF00BA2C56;
-			remoteInfo = CRLCoreLib;
-		};
 		468E10171958656A00BA2C56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 468E0FE61958656A00BA2C56 /* Project object */;
@@ -66,7 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CRLCoreLib.xcodeproj; path = ../../../CRLCoreLib/CRLCoreLib.xcodeproj; sourceTree = "<group>"; };
 		468E0FEE1958656A00BA2C56 /* MBPlacePickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBPlacePickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		468E0FF11958656A00BA2C56 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		468E0FF31958656A00BA2C56 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,12 +77,14 @@
 		46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MBPlacePickerDelegate.h; path = "MBPlacePickerController/MBPlacePickerController/Place Picker Delegate/MBPlacePickerDelegate.h"; sourceTree = SOURCE_ROOT; };
 		46D705941968FBE4008113A8 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iTunesArtwork.png; path = "MBPlacePickerController/Images/App Icon [Rounded]/iTunesArtwork.png"; sourceTree = "<group>"; };
 		46D705951968FBE5008113A8 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iTunesArtwork@2x.png"; path = "MBPlacePickerController/Images/App Icon [Rounded]/iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
-		46D7E57B19670A13000EA7C3 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
-		46D7E57C19670A13000EA7C3 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
-		46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
-		46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLib.a; sourceTree = "<group>"; };
-		46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCRLCoreLibSim.a; sourceTree = "<group>"; };
+		46D7059A1969030B008113A8 /* CRLCoreLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLCoreLib.h; sourceTree = "<group>"; };
+		46D7059B1969030B008113A8 /* CRLCoreLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLCoreLib.m; sourceTree = "<group>"; };
+		46D7059D1969030B008113A8 /* CRLDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLDataManager.h; sourceTree = "<group>"; };
+		46D7059E1969030B008113A8 /* CRLDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLDataManager.m; sourceTree = "<group>"; };
+		46D705A01969030B008113A8 /* CRLFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLFileManager.h; sourceTree = "<group>"; };
+		46D705A11969030B008113A8 /* CRLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLFileManager.m; sourceTree = "<group>"; };
+		46D705A31969030B008113A8 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
+		46D705A41969030B008113A8 /* CRLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLNetworkManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,11 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46D7E58019670A13000EA7C3 /* libCRLCoreLib.a in Frameworks */,
-				464BBF111961A20800321590 /* libCRLCoreLib.a in Frameworks */,
 				468E0FF41958656A00BA2C56 /* CoreGraphics.framework in Frameworks */,
 				468E0FF61958656A00BA2C56 /* UIKit.framework in Frameworks */,
-				46D7E58119670A13000EA7C3 /* libCRLCoreLibSim.a in Frameworks */,
 				468E0FF21958656A00BA2C56 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,24 +111,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		464BBEF819619F2A00321590 /* CoreLib */ = {
-			isa = PBXGroup;
-			children = (
-				464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */,
-			);
-			name = CoreLib;
-			path = MBPlacePickerController/CoreLib;
-			sourceTree = "<group>";
-		};
-		464BBF041961A1D100321590 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				464BBF091961A1D100321590 /* libCRLCoreLib.a */,
-				464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		468E0FE51958656A00BA2C56 = {
 			isa = PBXGroup;
 			children = (
@@ -175,8 +135,6 @@
 		468E0FF01958656A00BA2C56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				46D7E57719670A13000EA7C3 /* CoreLib Headers */,
-				464BBEF819619F2A00321590 /* CoreLib */,
 				468E0FF11958656A00BA2C56 /* Foundation.framework */,
 				468E0FF31958656A00BA2C56 /* CoreGraphics.framework */,
 				468E0FF51958656A00BA2C56 /* UIKit.framework */,
@@ -233,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				46D705931968F3FD008113A8 /* MBPlacePickerDelegate.h */,
+				46D705981969030B008113A8 /* CRLCoreLib */,
 				46D705801968EF4B008113A8 /* Location Manager */,
 				46D705831968EF4B008113A8 /* Location View Controller */,
 				46D705861968EF4B008113A8 /* MapView */,
@@ -278,34 +237,43 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		46D7E57719670A13000EA7C3 /* CoreLib Headers */ = {
+		46D705981969030B008113A8 /* CRLCoreLib */ = {
 			isa = PBXGroup;
 			children = (
-				46D7E57819670A13000EA7C3 /* include */,
-				46D7E57E19670A13000EA7C3 /* libCRLCoreLib.a */,
-				46D7E57F19670A13000EA7C3 /* libCRLCoreLibSim.a */,
-			);
-			name = "CoreLib Headers";
-			path = MBPlacePickerController/CoreLib;
-			sourceTree = "<group>";
-		};
-		46D7E57819670A13000EA7C3 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				46D7E57919670A13000EA7C3 /* CRLCoreLib */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		46D7E57919670A13000EA7C3 /* CRLCoreLib */ = {
-			isa = PBXGroup;
-			children = (
-				46D7E57A19670A13000EA7C3 /* CRLCoreLib.h */,
-				46D7E57B19670A13000EA7C3 /* CRLDataManager.h */,
-				46D7E57C19670A13000EA7C3 /* CRLFileManager.h */,
-				46D7E57D19670A13000EA7C3 /* CRLNetworkManager.h */,
+				46D7059A1969030B008113A8 /* CRLCoreLib.h */,
+				46D7059B1969030B008113A8 /* CRLCoreLib.m */,
+				46D7059C1969030B008113A8 /* Data Manager */,
+				46D7059F1969030B008113A8 /* File Manager */,
+				46D705A21969030B008113A8 /* Network Manager */,
 			);
 			path = CRLCoreLib;
+			sourceTree = "<group>";
+		};
+		46D7059C1969030B008113A8 /* Data Manager */ = {
+			isa = PBXGroup;
+			children = (
+				46D7059D1969030B008113A8 /* CRLDataManager.h */,
+				46D7059E1969030B008113A8 /* CRLDataManager.m */,
+			);
+			path = "Data Manager";
+			sourceTree = "<group>";
+		};
+		46D7059F1969030B008113A8 /* File Manager */ = {
+			isa = PBXGroup;
+			children = (
+				46D705A01969030B008113A8 /* CRLFileManager.h */,
+				46D705A11969030B008113A8 /* CRLFileManager.m */,
+			);
+			path = "File Manager";
+			sourceTree = "<group>";
+		};
+		46D705A21969030B008113A8 /* Network Manager */ = {
+			isa = PBXGroup;
+			children = (
+				46D705A31969030B008113A8 /* CRLNetworkManager.h */,
+				46D705A41969030B008113A8 /* CRLNetworkManager.m */,
+			);
+			path = "Network Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,7 +290,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				464BBF0E1961A1FB00321590 /* PBXTargetDependency */,
 			);
 			name = MBPlacePickerController;
 			productName = MBPlacePickerController;
@@ -373,12 +340,6 @@
 			mainGroup = 468E0FE51958656A00BA2C56;
 			productRefGroup = 468E0FEF1958656A00BA2C56 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 464BBF041961A1D100321590 /* Products */;
-					ProjectRef = 464BBF031961A1D100321590 /* CRLCoreLib.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				468E0FED1958656A00BA2C56 /* MBPlacePickerController */,
@@ -386,23 +347,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		464BBF091961A1D100321590 /* libCRLCoreLib.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libCRLCoreLib.a;
-			remoteRef = 464BBF081961A1D100321590 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		464BBF0B1961A1D100321590 /* CRLCoreLibTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CRLCoreLibTests.xctest;
-			remoteRef = 464BBF0A1961A1D100321590 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		468E0FEC1958656A00BA2C56 /* Resources */ = {
@@ -436,8 +380,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				468E100B1958656A00BA2C56 /* MBViewController.m in Sources */,
+				46D705A61969030B008113A8 /* CRLDataManager.m in Sources */,
 				46D7058D1968EF4B008113A8 /* MBLocationManager.m in Sources */,
+				46D705A71969030B008113A8 /* CRLFileManager.m in Sources */,
 				468E10021958656A00BA2C56 /* MBAppDelegate.m in Sources */,
+				46D705A51969030B008113A8 /* CRLCoreLib.m in Sources */,
+				46D705A81969030B008113A8 /* CRLNetworkManager.m in Sources */,
 				46D7058E1968EF4B008113A8 /* MBPlacePickerController.m in Sources */,
 				46D7058F1968EF4B008113A8 /* MBMapView.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
@@ -455,11 +403,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		464BBF0E1961A1FB00321590 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CRLCoreLib;
-			targetProxy = 464BBF0D1961A1FB00321590 /* PBXContainerItemProxy */;
-		};
 		468E10181958656A00BA2C56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 468E0FED1958656A00BA2C56 /* MBPlacePickerController */;
