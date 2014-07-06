@@ -36,20 +36,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-
+    
     /**
-     *  Create the location picker now. 
+     *  Create the location picker now.
      *
      *  If we create it too early, the map doesn't initialize correctly.
      *  TODO: This is a bug, and should be fixed.
      */
     
     self.locationPickerController = [[MBPlacePickerController alloc] init];
-    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
     /**
      *  Add a border to the buttons and views with the arbitrarily chosen tag 55.
      */
@@ -65,7 +64,6 @@
             b.layer.cornerRadius = 5.0;
         }
     }
-
 }
 
 - (void)didReceiveMemoryWarning
