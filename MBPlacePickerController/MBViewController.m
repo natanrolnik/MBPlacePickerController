@@ -58,6 +58,7 @@
     
     self.locationPickerController = [[MBPlacePickerController alloc] init];
     self.locationPickerController.delegate = self;
+    self.locationPickerController.serverURL = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
 }
 
 - (void)viewDidAppear:(BOOL)animated

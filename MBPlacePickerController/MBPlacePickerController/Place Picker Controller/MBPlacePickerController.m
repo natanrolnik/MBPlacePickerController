@@ -70,7 +70,7 @@ static NSIndexPath *previousIndexPath = nil;
         _locationsByContinent = @{};
         _map = [[MBMapView alloc] init];
         _sortByContinent = YES;
-        _serverURL = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
+        _serverURL = @"";
         _automaticUpdates = NO;
         _navigationController = [[UINavigationController alloc] initWithRootViewController:self];
     }
