@@ -148,10 +148,10 @@
 			children = (
 				468E10001958656A00BA2C56 /* MBAppDelegate.h */,
 				468E10011958656A00BA2C56 /* MBAppDelegate.m */,
-				46D7057F1968EF4B008113A8 /* MBPlacePickerController */,
 				468E10031958656A00BA2C56 /* Main.storyboard */,
 				468E10091958656A00BA2C56 /* MBViewController.h */,
 				468E100A1958656A00BA2C56 /* MBViewController.m */,
+				46D7057F1968EF4B008113A8 /* MBPlacePickerController */,
 				468E100C1958656A00BA2C56 /* Images.xcassets */,
 				468E0FF81958656A00BA2C56 /* Supporting Files */,
 			);
