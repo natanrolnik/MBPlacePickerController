@@ -438,37 +438,46 @@ static NSIndexPath *previousIndexPath = nil;
     
     NSURL *url = [NSURL URLWithString:self.serverURL];
     
-    [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
-        if (data)
-        {
-            NSError *error = nil;
-            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
-            
-            if (error && ! locations)
+    if (url)
+    {
+        
+        [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
+            if (data)
             {
-                NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
-            }
-            else if (locations)
-            {
-                if (!locations.count) {
-                    NSLog(@"LocationViewController (CRLCoreLib): Recieved an empty list of locations.");
-                }
-                else
+                NSError *error = nil;
+                NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:&error];
+                
+                if (error && ! locations)
                 {
-                    NSString *path = [[[CRLCoreLib fileManager] pathForApplicationLibraryDirectory] stringByAppendingString:@"/locations.json"];;
-                    [[CRLCoreLib fileManager] writeData:data toPath:path];
-                    
-                    [self setUnsortedLocationList:locations];
-                    //  TODO: Ensure existing location is in list, if not, add it.
-                    [[self tableView] reloadData];
+                    NSLog(@"LocationViewController (CRLCoreLib): Failed to unwrap fresh location list.");
+                }
+                else if (locations)
+                {
+                    if (!locations.count) {
+                        NSLog(@"LocationViewController (CRLCoreLib): Recieved an empty list of locations.");
+                    }
+                    else
+                    {
+                        NSString *path = [[[CRLCoreLib fileManager] pathForApplicationLibraryDirectory] stringByAppendingString:@"/locations.json"];;
+                        [[CRLCoreLib fileManager] writeData:data toPath:path];
+                        
+                        [self setUnsortedLocationList:locations];
+                        //  TODO: Ensure existing location is in list, if not, add it.
+                        [[self tableView] reloadData];
+                    }
                 }
             }
-        }
-        else{
-            NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
-        }
-    }];
+            else{
+                NSLog(@"LocationViewController (CRLCoreLib): Failed to download fresh location list.");
+            }
+        }];
+    }
+    else
+    {
+        NSLog(@"Failed to update locations from server. Invalid URL.");
+    }
 }
+
 
 /**
  *  Loads the locations from the app bundle.
