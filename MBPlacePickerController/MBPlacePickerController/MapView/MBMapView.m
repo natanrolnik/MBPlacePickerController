@@ -307,6 +307,15 @@
                 CGPoint userMarkerCenter = [self pointFromLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];
                 [[self userMarker] setCenter:userMarkerCenter];
                 [self addSubview:[self userMarker]];
+                
+                /**
+                 *  Keep the selected marker above the location marker.
+                 */
+                
+                if ([self.subviews containsObject:[self marker]])
+                {
+                    [self bringSubviewToFront:[self marker]];
+                }
             }
             
 
