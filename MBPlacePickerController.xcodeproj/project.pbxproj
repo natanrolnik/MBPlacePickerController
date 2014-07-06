@@ -23,7 +23,6 @@
 		468E10201958656A00BA2C56 /* MBPlacePickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 468E101F1958656A00BA2C56 /* MBPlacePickerControllerTests.m */; };
 		46D7058D1968EF4B008113A8 /* MBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705821968EF4B008113A8 /* MBLocationManager.m */; };
 		46D7058E1968EF4B008113A8 /* MBPlacePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705851968EF4B008113A8 /* MBPlacePickerController.m */; };
-		46D7058F1968EF4B008113A8 /* MBMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705881968EF4B008113A8 /* MBMapView.m */; };
 		46D705901968EF4B008113A8 /* equi-map.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058A1968EF4B008113A8 /* equi-map.png */; };
 		46D705911968EF4B008113A8 /* equi-map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058B1968EF4B008113A8 /* equi-map@2x.png */; };
 		46D705921968EF4B008113A8 /* locations.json in Resources */ = {isa = PBXBuildFile; fileRef = 46D7058C1968EF4B008113A8 /* locations.json */; };
@@ -33,6 +32,7 @@
 		46D705A61969030B008113A8 /* CRLDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D7059E1969030B008113A8 /* CRLDataManager.m */; };
 		46D705A71969030B008113A8 /* CRLFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705A11969030B008113A8 /* CRLFileManager.m */; };
 		46D705A81969030B008113A8 /* CRLNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705A41969030B008113A8 /* CRLNetworkManager.m */; };
+		46D705AC19690FC9008113A8 /* MBMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D705AB19690FC9008113A8 /* MBMapView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,6 @@
 		46D705821968EF4B008113A8 /* MBLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBLocationManager.m; sourceTree = "<group>"; };
 		46D705841968EF4B008113A8 /* MBPlacePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPlacePickerController.h; sourceTree = "<group>"; };
 		46D705851968EF4B008113A8 /* MBPlacePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPlacePickerController.m; sourceTree = "<group>"; };
-		46D705871968EF4B008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBMapView.h; path = "../Map View/MBMapView.h"; sourceTree = "<group>"; };
-		46D705881968EF4B008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBMapView.m; path = "../Map View/MBMapView.m"; sourceTree = "<group>"; };
 		46D7058A1968EF4B008113A8 /* equi-map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map.png"; sourceTree = "<group>"; };
 		46D7058B1968EF4B008113A8 /* equi-map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "equi-map@2x.png"; sourceTree = "<group>"; };
 		46D7058C1968EF4B008113A8 /* locations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = locations.json; sourceTree = "<group>"; };
@@ -85,6 +83,8 @@
 		46D705A11969030B008113A8 /* CRLFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLFileManager.m; sourceTree = "<group>"; };
 		46D705A31969030B008113A8 /* CRLNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRLNetworkManager.h; sourceTree = "<group>"; };
 		46D705A41969030B008113A8 /* CRLNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRLNetworkManager.m; sourceTree = "<group>"; };
+		46D705AA19690FC9008113A8 /* MBMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMapView.h; sourceTree = "<group>"; };
+		46D705AB19690FC9008113A8 /* MBMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMapView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +194,7 @@
 				46D705981969030B008113A8 /* CRLCoreLib */,
 				46D705801968EF4B008113A8 /* Location Manager */,
 				46D705831968EF4B008113A8 /* MBPlacePickerController */,
-				46D705861968EF4B008113A8 /* Map View */,
+				46D705A919690FC9008113A8 /* Map View */,
 				46D705891968EF4B008113A8 /* Resources */,
 			);
 			path = MBPlacePickerController;
@@ -217,16 +217,6 @@
 			);
 			name = MBPlacePickerController;
 			path = "Place Picker Controller";
-			sourceTree = "<group>";
-		};
-		46D705861968EF4B008113A8 /* Map View */ = {
-			isa = PBXGroup;
-			children = (
-				46D705871968EF4B008113A8 /* MBMapView.h */,
-				46D705881968EF4B008113A8 /* MBMapView.m */,
-			);
-			name = "Map View";
-			path = MapView;
 			sourceTree = "<group>";
 		};
 		46D705891968EF4B008113A8 /* Resources */ = {
@@ -276,6 +266,15 @@
 				46D705A41969030B008113A8 /* CRLNetworkManager.m */,
 			);
 			path = "Network Manager";
+			sourceTree = "<group>";
+		};
+		46D705A919690FC9008113A8 /* Map View */ = {
+			isa = PBXGroup;
+			children = (
+				46D705AA19690FC9008113A8 /* MBMapView.h */,
+				46D705AB19690FC9008113A8 /* MBMapView.m */,
+			);
+			path = "Map View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,7 +388,7 @@
 				46D705A51969030B008113A8 /* CRLCoreLib.m in Sources */,
 				46D705A81969030B008113A8 /* CRLNetworkManager.m in Sources */,
 				46D7058E1968EF4B008113A8 /* MBPlacePickerController.m in Sources */,
-				46D7058F1968EF4B008113A8 /* MBMapView.m in Sources */,
+				46D705AC19690FC9008113A8 /* MBMapView.m in Sources */,
 				468E0FFE1958656A00BA2C56 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
