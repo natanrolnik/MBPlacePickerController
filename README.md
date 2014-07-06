@@ -12,7 +12,7 @@ Screenshots
 
 Getting Started
 ---
-You'll need to find the `MBPickerController` folder in the repository and add it to your project. CocoaPods support is not available *yet*.
+You'll need to find the `MBPlacePickerController` subfolder in the repository and add it to your project. CocoaPods support is not available *yet*.
 
 Dependencies
 ---
