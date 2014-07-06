@@ -24,7 +24,25 @@
  */
 
 @property (nonatomic, assign) BOOL showUserLocation;
-           
+
+/**
+ *  A URL to use to update the location list.
+ *  The default points to the GitHub repo.
+ */
+
+@property (nonatomic, strong) NSString *serverURL;
+
+/**
+ *
+ */
+
+
+/**
+ *  A view that renders the map.
+ */
+
+@property (nonatomic, strong, readonly) MBMapView *map;
+
 /**
  *  Asks the rootViewController of the keyWindow to display the location view controller.
  */
@@ -37,10 +55,6 @@
 
 - (void)dismiss;
 
-/**
- *  A view that renders the map.
- */
 
-@property (nonatomic, strong, readonly) MBMapView *map;
 
 @end

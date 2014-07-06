@@ -16,14 +16,6 @@
 @import MapKit;
 
 /**
- *  An URL to the location feed.
- *
- *  TODO: Upload the feed to the server.
- */
-
-static const NSString *kURLLocationList = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
-
-/**
  *
  */
 
@@ -45,7 +37,7 @@ static NSIndexPath *previousIndexPath = nil;
  *  An array of location dictionaries.
  */
 
-@property (nonatomic, strong) NSArray *locations;
+@property (nonatomic, strong) NSArray *unsortedLocationList;
 
 /**
  *  A dictionary of dictionaries, sorted by continent.
@@ -68,11 +60,13 @@ static NSIndexPath *previousIndexPath = nil;
     self = [super init];
     if (self) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-        _locations = @[];
+        _unsortedLocationList = @[];
+        _locationsByContinent = @{};
         _map = [[MBMapView alloc] init];
-        self.view.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
         _sortByContinent = YES;
+        _serverURL = @"https://raw.githubusercontent.com/MosheBerman/LocationViewController/master/server-locations.json";
     }
+    
     return self;
 }
 
@@ -81,6 +75,7 @@ static NSIndexPath *previousIndexPath = nil;
     /**
      *  Create the view.
      */
+    
     CGRect bounds = [UIApplication sharedApplication].keyWindow.rootViewController.view.bounds;
     
     self.view = [[UIView alloc] initWithFrame:bounds];
@@ -134,7 +129,7 @@ static NSIndexPath *previousIndexPath = nil;
      *  Load up locations.
      */
     
-    [self loadLocationsFromBundle];
+    [self loadLocationsFromDisk];
     
     /**
      *  Configure buttons.
@@ -167,7 +162,6 @@ static NSIndexPath *previousIndexPath = nil;
     /**
      *  TODO: Re-size map if necessary.
      */
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -175,6 +169,8 @@ static NSIndexPath *previousIndexPath = nil;
     [super viewDidAppear:animated];
     previousIndexPath = nil;
     [self updateLocationFromServer];
+    
+    [self.map markCoordinate:self.location.coordinate];
 }
 
 - (void)didReceiveMemoryWarning
@@ -260,9 +256,9 @@ static NSIndexPath *previousIndexPath = nil;
     else
     {
         
-        if (self.locations.count > indexPath.row)
+        if (self.unsortedLocationList.count > indexPath.row)
         {
-            location = self.locations[indexPath.row];
+            location = self.unsortedLocationList[indexPath.row];
         }
     }
     
@@ -304,7 +300,7 @@ static NSIndexPath *previousIndexPath = nil;
         count = [self.locationsByContinent[continentKeyForSection] count];
     }
     else{
-        count = [self.locations count];
+        count = [self.unsortedLocationList count];
     }
     
     return count;
@@ -357,10 +353,10 @@ static NSIndexPath *previousIndexPath = nil;
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (self.locations.count > indexPath.row)
+    if (self.unsortedLocationList.count > indexPath.row)
     {
         
-        NSDictionary *location = self.locations[indexPath.row];
+        NSDictionary *location = self.unsortedLocationList[indexPath.row];
         
         if (self.sortByContinent)
         {
@@ -428,7 +424,7 @@ static NSIndexPath *previousIndexPath = nil;
      *  Download a updated location list.
      */
     
-    NSURL *url = [NSURL URLWithString:(NSString *)kURLLocationList];
+    NSURL *url = [NSURL URLWithString:self.serverURL];
     
     [[CRLCoreLib networkManager] downloadDataAtURL:url withCompletion:^(NSData *data) {
         if (data)
@@ -450,7 +446,7 @@ static NSIndexPath *previousIndexPath = nil;
                     NSString *path = [[[CRLCoreLib fileManager] pathForApplicationLibraryDirectory] stringByAppendingString:@"/locations.json"];;
                     [[CRLCoreLib fileManager] writeData:data toPath:path];
                     
-                    [self setLocations:locations];
+                    [self setUnsortedLocationList:locations];
                     //  TODO: Ensure existing location is in list, if not, add it.
                     [[self tableView] reloadData];
                 }
@@ -466,7 +462,7 @@ static NSIndexPath *previousIndexPath = nil;
  *  Loads the locations from the app bundle.
  */
 
-- (void)loadLocationsFromBundle
+- (void)loadLocationsFromDisk
 {
     
     NSString *applicationString = [[CRLCoreLib fileManager] pathForApplicationLibraryDirectory];
@@ -486,7 +482,7 @@ static NSIndexPath *previousIndexPath = nil;
         if (data) {
             NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
             
-            self.locations = locations;
+            self.unsortedLocationList = locations;
         }
         else
         {
@@ -497,7 +493,7 @@ static NSIndexPath *previousIndexPath = nil;
     {
         NSArray *locations = [NSJSONSerialization JSONObjectWithData:localData options:NSJSONReadingMutableContainers error:&error];
         
-        self.locations = locations;
+        self.unsortedLocationList = locations;
     }
 }
 
@@ -509,7 +505,7 @@ static NSIndexPath *previousIndexPath = nil;
 {
     NSMutableDictionary *continents = [[NSMutableDictionary alloc] init];
     
-    for (NSDictionary *location in self.locations)
+    for (NSDictionary *location in self.unsortedLocationList)
     {
         NSString *continent = location[@"continent"];
         
@@ -568,11 +564,11 @@ static NSIndexPath *previousIndexPath = nil;
  *  @param locations An array of dictionaries describing locations.
  */
 
-- (void)setLocations:(NSArray *)locations
+- (void)setUnsortedLocationList:(NSArray *)locations
 {
     if (locations)
     {
-        _locations = locations;
+        _unsortedLocationList = locations;
         [self _sortArrayOfLocationsByContinent];    //  Sort by continent.
     }
 }
@@ -585,7 +581,7 @@ static NSIndexPath *previousIndexPath = nil;
 {
     _sortByContinent = sortByContinent;
     
-    [self loadLocationsFromBundle];
+    [self loadLocationsFromDisk];
     
     [[self tableView] reloadData];
 }
