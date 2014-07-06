@@ -243,8 +243,18 @@ static NSIndexPath *previousIndexPath = nil;
 - (void)enableAutomaticUpdates
 {
     /**
+     *  Don't enable twice in a row.
+     */
+    
+    if (self.automaticUpdates)
+    {
+        return;
+    }
+    
+    /**
      *  Set the flag.
      */
+    
     self.automaticUpdates = YES;
     
     /**
