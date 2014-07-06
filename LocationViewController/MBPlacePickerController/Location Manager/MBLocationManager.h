@@ -12,13 +12,13 @@
 
 typedef void(^MBLocationManagerUpdateCompletionBlock)(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus);
 
-@interface LVCLocationManager : NSObject
+@interface MBLocationManager : NSObject
 
 /**
  *  Singleton access.
  */
 
-+ (LVCLocationManager *)sharedManager;
++ (MBLocationManager *)sharedManager;
 
 /**
  *  Update the user's location with a completion block.

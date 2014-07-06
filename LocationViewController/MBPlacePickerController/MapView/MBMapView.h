@@ -10,7 +10,7 @@
 
 @import MapKit;
 
-@interface LVCMapView : UIImageView
+@interface MBMapView : UIImageView
 
 /**
  *  Displays a marker on the given coordinate.

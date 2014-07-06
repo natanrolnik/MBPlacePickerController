@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Corlear Apps. All rights reserved.
 //
 
-#import "LVCAppDelegate.h"
+#import "MBAppDelegate.h"
 
-@implementation LVCAppDelegate
+@implementation MBAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

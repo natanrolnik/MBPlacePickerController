@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LVCMapView.h"
+#import "MBMapView.h"
 
-@interface LVCLocationPickerController : UIViewController
+@interface MBPlacePickerController : UIViewController
 
 /**
  *  A flag to determine if the locations should be sorted by continent.
@@ -41,6 +41,6 @@
  *  A view that renders the map.
  */
 
-@property (nonatomic, strong, readonly) LVCMapView *map;
+@property (nonatomic, strong, readonly) MBMapView *map;
 
 @end

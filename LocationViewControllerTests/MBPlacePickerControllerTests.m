@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface LocationViewControllerTests : XCTestCase
+@interface MBPlacePickerControllerTests : XCTestCase
 
 @end
 
-@implementation LocationViewControllerTests
+@implementation MBPlacePickerControllerTests
 
 - (void)setUp
 {

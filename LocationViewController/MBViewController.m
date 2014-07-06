@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Corlear Apps. All rights reserved.
 //
 
-#import "LVCViewController.h"
-#import "LVCLocationPickerController.h"
+#import "MBViewController.h"
+#import "MBPlacePickerController.h"
 
-@interface LVCViewController ()
+@interface MBViewController ()
 
 /**
  *  The location picker.
  */
 
-@property (nonatomic, strong) LVCLocationPickerController *locationPickerController;
+@property (nonatomic, strong) MBPlacePickerController *locationPickerController;
 /**
  *  A switch to toggle the continent sort.
  */
@@ -30,7 +30,7 @@
 
 @end
 
-@implementation LVCViewController
+@implementation MBViewController
 
 - (void)viewDidLoad
 {
@@ -48,7 +48,7 @@
      *  TODO: This is a bug, and should be fixed.
      */
     
-    self.locationPickerController = [[LVCLocationPickerController alloc] init];
+    self.locationPickerController = [[MBPlacePickerController alloc] init];
     
     /**
      *  Add a border to the buttons and views with the arbitrarily chosen tag 55.

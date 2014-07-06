@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Corlear Apps. All rights reserved.
 //
 
-#import "LVCLocationPickerController.h"
-#import "LVCMapView.h"
+#import "MBPlacePickerController.h"
+#import "MBMapView.h"
 
 #import "CRLCoreLib.h"
-#import "LVCLocationManager.h"
+#import "MBLocationManager.h"
 
 @import CoreLocation;
 @import MapKit;
@@ -33,7 +33,7 @@ static NSIndexPath *previousIndexPath = nil;
  *
  */
 
-@interface LVCLocationPickerController () <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+@interface MBPlacePickerController () <UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 
 /**
  *  The working location.
@@ -61,7 +61,7 @@ static NSIndexPath *previousIndexPath = nil;
 
 @end
 
-@implementation LVCLocationPickerController
+@implementation MBPlacePickerController
 
 - (instancetype)init
 {
@@ -69,7 +69,7 @@ static NSIndexPath *previousIndexPath = nil;
     if (self) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _locations = @[];
-        _map = [[LVCMapView alloc] init];
+        _map = [[MBMapView alloc] init];
         self.view.backgroundColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.00];
         _sortByContinent = YES;
     }

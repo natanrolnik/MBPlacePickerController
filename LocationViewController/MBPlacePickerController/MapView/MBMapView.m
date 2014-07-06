@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Corlear Apps. All rights reserved.
 //
 
-#import "LVCMapView.h"
-#import "LVCLocationManager.h"
+#import "MBMapView.h"
+#import "MBLocationManager.h"
 
-@interface LVCMapView ()
+@interface MBMapView ()
 
 /**
  *  References the last known coordinate.
@@ -23,7 +23,7 @@
  *  This view is capable of displaying markers on a map.
  */
 
-@implementation LVCMapView
+@implementation MBMapView
 
 #pragma mark - Initializers
 
@@ -286,7 +286,7 @@
     else
     {
         [[self userMarker] removeFromSuperview];
-        [[LVCLocationManager sharedManager] stopUpdatingLocation];
+        [[MBLocationManager sharedManager] stopUpdatingLocation];
     }
 }
 
@@ -299,10 +299,10 @@
 - (void)_updateUserLocation
 {
     
-    [[LVCLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
+    [[MBLocationManager sharedManager] updateLocationWithCompletionHandler:^(NSArray *locations, CLHeading *heading, CLAuthorizationStatus authorizationStatus) {
 
             
-            CLLocation *location = [[LVCLocationManager sharedManager] location];
+            CLLocation *location = [[MBLocationManager sharedManager] location];
             
             if (location) {
                 CGPoint userMarkerCenter = [self pointFromLatitude:location.coordinate.latitude andLongitude:location.coordinate.longitude];

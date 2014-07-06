@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "468E0FED1958656A00BA2C56"
                BuildableName = "LocationViewController.app"
-               BlueprintName = "LocationViewController"
-               ReferencedContainer = "container:LocationViewController.xcodeproj">
+               BlueprintName = "MBPlacePickerController"
+               ReferencedContainer = "container:MBPlacePickerController.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "468E10111958656A00BA2C56"
                BuildableName = "LocationViewControllerTests.xctest"
-               BlueprintName = "LocationViewControllerTests"
-               ReferencedContainer = "container:LocationViewController.xcodeproj">
+               BlueprintName = "MBPlacePickerControllerTests"
+               ReferencedContainer = "container:MBPlacePickerController.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "468E0FED1958656A00BA2C56"
             BuildableName = "LocationViewController.app"
-            BlueprintName = "LocationViewController"
-            ReferencedContainer = "container:LocationViewController.xcodeproj">
+            BlueprintName = "MBPlacePickerController"
+            ReferencedContainer = "container:MBPlacePickerController.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "468E0FED1958656A00BA2C56"
             BuildableName = "LocationViewController.app"
-            BlueprintName = "LocationViewController"
-            ReferencedContainer = "container:LocationViewController.xcodeproj">
+            BlueprintName = "MBPlacePickerController"
+            ReferencedContainer = "container:MBPlacePickerController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "468E0FED1958656A00BA2C56"
             BuildableName = "LocationViewController.app"
-            BlueprintName = "LocationViewController"
-            ReferencedContainer = "container:LocationViewController.xcodeproj">
+            BlueprintName = "MBPlacePickerController"
+            ReferencedContainer = "container:MBPlacePickerController.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

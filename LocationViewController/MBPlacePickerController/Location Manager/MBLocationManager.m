@@ -6,9 +6,9 @@
 //
 //
 
-#import "LVCLocationManager.h"
+#import "MBLocationManager.h"
 
-@interface LVCLocationManager () <CLLocationManagerDelegate>
+@interface MBLocationManager () <CLLocationManagerDelegate>
 
 /**
  *  A CLLocationManager
@@ -42,18 +42,18 @@
 
 @end
 
-@implementation LVCLocationManager
+@implementation MBLocationManager
 
 /**
  *  Singleton access.
  */
 
-+ (LVCLocationManager *)sharedManager
++ (MBLocationManager *)sharedManager
 {
-    static LVCLocationManager *manager;
+    static MBLocationManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        manager = [[LVCLocationManager alloc] init];
+        manager = [[MBLocationManager alloc] init];
     });
     
     return manager;

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LVCAppDelegate.h"
+#import "MBAppDelegate.h"
 
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([LVCAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([MBAppDelegate class]));
     }
 }

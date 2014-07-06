@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:LocationViewController.xcodeproj">
+      location = "self:MBPlacePickerController.xcodeproj">
    </FileRef>
 </Workspace>
