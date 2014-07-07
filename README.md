@@ -117,7 +117,7 @@ The source code here is released under the MIT License. See [LICENSE](/LICENSE) 
 
 Special Thanks
 ---
-This one goes out to Randall Munroe, because without [XKCD #977](http://xkcd.com/977/), I'd still be searching the internet for the [Plate Carrée map projection](http://en.wikipedia.org/wiki/Equirectangular_projection). (That's the one where pixels equal latitude and longitude points.)
+This one goes out to Randall Munroe, because without [XKCD #977](http://xkcd.com/977/), I'd still be searching the internet for the [Plate Carrée map projection](http://en.wikipedia.org/wiki/Equirectangular_projection). That's the one where pixels equal latitude and longitude points. I had seen [this video](http://www.upworthy.com/we-have-been-mislead-by-an-erroneous-map-of-the-world-for-500-years?c=ufb7) before, but watching it again after seeing the xkcd made me laugh out loud.
 
 The [map image I used](http://simple.wikipedia.org/wiki/Equirectangular_projection#mediaviewer/File:Equirectangular-projection.jpg) comes from Wikipedia, and according to Wikipedia, is in the public domain.
 
