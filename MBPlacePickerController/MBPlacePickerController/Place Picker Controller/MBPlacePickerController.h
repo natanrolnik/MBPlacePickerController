@@ -13,6 +13,12 @@
 @interface MBPlacePickerController : UIViewController
 
 /**
+ *  Singleton access.
+ */
+
++ (instancetype)sharedPicker;
+
+/**
  *  A flag to determine if the locations should be sorted by continent.
  *  Default is YES.
  */

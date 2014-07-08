@@ -61,6 +61,22 @@ static NSIndexPath *previousIndexPath = nil;
 
 @implementation MBPlacePickerController
 
+/**
+ *  @return A singleton instance of MBPlacePickerController.
+ */
+
++ (instancetype)sharedPicker
+{
+    static MBPlacePickerController *manager = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[MBPlacePickerController alloc] init];
+    });
+    
+    return manager;
+}
+
 - (instancetype)init
 {
     self = [super init];
