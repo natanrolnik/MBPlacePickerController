@@ -67,10 +67,12 @@ The list of places is something I compiled a while back. If you want to change i
 
 In either case, you're going to want to follow the following convention for each location:
 
+	{
  	"name" : "Boston, Massachusetts, USA",	// City name
 	"longitude" : -71.0597732,	//	Longitude
   	"latitude" : 42.3584308,	//	Latitude
   	"continent" : "North America"	//	Continent
+  	}
   	
 
 If you don't provide a properly capitalized continent, the continent sorting will break. Valid continents are technically any string, but you should use these:
