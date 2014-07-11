@@ -65,7 +65,11 @@
 {
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         
         if (completion) {
             completion(data);
