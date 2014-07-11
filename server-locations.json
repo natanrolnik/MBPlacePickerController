@@ -15,7 +15,7 @@
   "name" : "Berlin, Germany",
   "longitude" : 13.4114,
   "latitude" : 52.523405,
-  "continent" : "North America"
+  "continent" : "Europe"
   },
   {
   "name" : "Boston, Massachusetts, USA",
@@ -24,7 +24,7 @@
   "continent" : "North America"
   },
   {
-  "name" : "Buenos Aires, Brazil",
+  "name" : "Buenos Aires, Argentina",
   "longitude" : -37.633333,
   "latitude" : -7.966667,
   "continent" : "South America"
