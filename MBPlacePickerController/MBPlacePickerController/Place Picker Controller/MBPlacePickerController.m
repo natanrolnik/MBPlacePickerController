@@ -23,6 +23,12 @@
 static NSIndexPath *previousIndexPath = nil;
 
 /**
+ *  A key used to persist the last location.
+ */
+
+static NSString *kLocationPersistenceKey = @"com.mosheberman.location-persist-key";
+
+/**
  *
  */
 
@@ -61,6 +67,22 @@ static NSIndexPath *previousIndexPath = nil;
 
 @implementation MBPlacePickerController
 
+/**
+ *  @return A singleton instance of MBPlacePickerController.
+ */
+
++ (instancetype)sharedPicker
+{
+    static MBPlacePickerController *manager = nil;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        manager = [[MBPlacePickerController alloc] init];
+    });
+    
+    return manager;
+}
+
 - (instancetype)init
 {
     self = [super init];
@@ -73,6 +95,20 @@ static NSIndexPath *previousIndexPath = nil;
         _serverURL = @"";
         _automaticUpdates = NO;
         _navigationController = [[UINavigationController alloc] initWithRootViewController:self];
+
+        /**
+         *  Load the cached location.
+         */
+        
+        NSDictionary *previousLocationData = [[NSUserDefaults standardUserDefaults] dictionaryForKey:kLocationPersistenceKey];
+        
+        CGFloat lat = [previousLocationData[@"latitude"] floatValue];
+        CGFloat lon = [previousLocationData[@"longitude"] floatValue];
+        
+        CLLocation *location = [[CLLocation alloc] initWithLatitude:lat longitude:lon];
+        
+        _location = location;
+        
     }
     
     return self;
@@ -223,7 +259,7 @@ static NSIndexPath *previousIndexPath = nil;
 
 - (void)dismiss
 {
- [self.navigationController.presentingViewController dismissViewControllerAnimated:self.navigationController completion:^{
+ [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:^{
  }];
 }
 
@@ -741,6 +777,9 @@ static NSIndexPath *previousIndexPath = nil;
     {
         [self disableAutomaticUpdates];
         [self.map markCoordinate:location.coordinate];
+        
+        NSDictionary *newLocationData = @{@"latitude": @(location.coordinate.latitude), @"longitude" : @(location.coordinate.longitude)};
+        [[NSUserDefaults standardUserDefaults] setObject:newLocationData forKey:kLocationPersistenceKey];
     }
 }
 

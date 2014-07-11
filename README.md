@@ -31,8 +31,8 @@ To show a place picker, you need to follow three easy steps:
 	// Step 0: Import the header.
 	#import "MBPlacePickerController.h"
 	
-	// Step 1: Create a picker
-	MBPlacePickerController *picker = [[]MBPlacePickerController alloc] init];
+	// Step 1: Access the singleton picker
+	MBPlacePickerController *picker = [MBPlacePickerController sharedPicker];
 	
 	// Step 2: Display the Picker
 	[picker display];
@@ -44,8 +44,11 @@ Picking A Place
 
 To get a location when the user picks one, or to get a location when automatic updates come back, assign a delegate to the place picker. You'll need to implement one delegate method to catch those location updates. Assume the picker from "Showing a Picker," your code should look like the following:
 
-	picker.delegate = self;
+	picker.delegate = self;	// Could be anything, really.
 	
+	
+In your delegate, implement this one crazy method that handles almost all the work for you!
+
 	- (void)placePickerController:(MBPlacePickerController *)placePicker didChangeToPlace:(CLLocation *)place
 	{
 		//	Do something with the location.
@@ -56,12 +59,21 @@ This method will fire whenever the user taps a place, or when Core Location pass
 About the Places and Sorting Them:
 ===
 
-The list of places is something I compiled a while back. If you want to change it, you have two options. In either case, you're going to want to follow the following convention:
+The list of places is something I compiled a while back. If you want to change it, you have two options. 
 
+1. You can edit the list of locations directly. Inside the `Resources` folder, there's a file named `locations.json`. 
+
+2. You can keep the list fresh by keeping the latest version on your server. Set a string value to the `serverURL` property on the picker to tell it where to look. It will update whenever its `viewDidAppear` method is called. 
+
+In either case, you're going to want to follow the following convention for each location:
+
+	{
  	"name" : "Boston, Massachusetts, USA",	// City name
 	"longitude" : -71.0597732,	//	Longitude
   	"latitude" : 42.3584308,	//	Latitude
   	"continent" : "North America"	//	Continent
+  	}
+  	
 
 If you don't provide a properly capitalized continent, the continent sorting will break. Valid continents are technically any string, but you should use these:
 
@@ -73,9 +85,14 @@ If you don't provide a properly capitalized continent, the continent sorting wil
 	"Europe"
 	"Antarctica"
 
-1. You can edit the list of locations directly. Inside the `Resources` folder, there's a file named `locations.json`. 
 
-2. You can keep the list fresh by keeping the latest version on your server. Set a string value to the `serverURL` property on the picker to tell it where to look. It will update whenever its `viewDidAppear` method is called. 
+
+About the Singleton
+---
+
+**Note:** You don't have to create a singleton picker, but if you want to use it to get a continuous stream of location updates across various parts of your app, or use  the cached location, it's best to use the singleton for consistency. 
+
+If you're not into that, just call `alloc] init]` instead. 
 
 Extras
 ===
@@ -117,7 +134,7 @@ The source code here is released under the MIT License. See [LICENSE](/LICENSE) 
 
 Special Thanks
 ---
-This one goes out to Randall Munroe, because without [XKCD #977](http://xkcd.com/977/), I'd still be searching the internet for the [Plate Carrée map projection](http://en.wikipedia.org/wiki/Equirectangular_projection). (That's the one where pixels equal latitude and longitude points.)
+This one goes out to Randall Munroe, because without [XKCD #977](http://xkcd.com/977/), I'd still be searching the internet for the [Plate Carrée map projection](http://en.wikipedia.org/wiki/Equirectangular_projection). That's the one where pixels equal latitude and longitude points. I had seen [this video](http://www.upworthy.com/we-have-been-mislead-by-an-erroneous-map-of-the-world-for-500-years?c=ufb7) before, but watching it again after seeing the xkcd made me laugh out loud.
 
 The [map image I used](http://simple.wikipedia.org/wiki/Equirectangular_projection#mediaviewer/File:Equirectangular-projection.jpg) comes from Wikipedia, and according to Wikipedia, is in the public domain.
 
