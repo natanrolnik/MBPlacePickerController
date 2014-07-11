@@ -259,7 +259,7 @@ static NSString *kLocationPersistenceKey = @"com.mosheberman.location-persist-ke
 
 - (void)dismiss
 {
- [self.navigationController.presentingViewController dismissViewControllerAnimated:self.navigationController completion:^{
+ [self.navigationController.presentingViewController dismissViewControllerAnimated:YES completion:^{
  }];
 }
 
