@@ -294,11 +294,6 @@ static NSString *kLocationPersistenceKey = @"com.mosheberman.location-persist-ke
     self.automaticUpdates = YES;
     
     /**
-     *  Hide the red map marker.
-     */
-    [self.map hideMarker];
-    
-    /**
      *  Trigger automatic location updates.
      */
     
@@ -324,15 +319,13 @@ static NSString *kLocationPersistenceKey = @"com.mosheberman.location-persist-ke
              *  Reload the table so we don't have an extra checkmark.
              */
             
-            if (previousIndexPath != nil)
-            {
-                [[self tableView] reloadRowsAtIndexPaths:@[previousIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            }
+            [[self tableView] reloadData];
             
             /**
              *  ...display it...
              */
             [self.map setShowUserLocation:YES];
+            [self.map markCoordinate:lastLocation.coordinate];
             
             /**
              *  ...and attempt to call the delegate.
