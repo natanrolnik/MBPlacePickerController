@@ -18,7 +18,9 @@
      *  Set the app tint color to a shade of purple.
      */
     
-    [[UIView appearance] setTintColor:[UIColor colorWithRed:0.61 green:0.29 blue:0.93 alpha:1.00]];
+    UIColor *tintColor = [UIColor colorWithRed:0.61 green:0.29 blue:0.93 alpha:1.00];
+    self.window.tintColor = tintColor;
+
     return YES;
 }
 							
